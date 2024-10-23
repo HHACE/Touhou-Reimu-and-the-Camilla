@@ -4,7 +4,8 @@ var bullet_scene = preload("res://Subscene/reimu_bullet_1.tscn")
 var bullet_pool = []
 
 func _process(delta: float) -> void:
-	print ("me: ",bullet_pool.size())
+	#print ("me: ",bullet_pool.size())
+	pass
 
 func _ready() -> void:
 	for i in range(5):  # Pre-create 100 bullets
@@ -20,6 +21,6 @@ func get_bullet():
 		return null
 
 func return_bullet(bullet):
-	print("meme")
+	#print("meme")
 	bullet_pool.append(bullet)
 	#bullet.queue_free()

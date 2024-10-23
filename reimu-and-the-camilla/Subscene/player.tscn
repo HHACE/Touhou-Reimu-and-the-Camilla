@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj10yuh5kr7jo"]
+[gd_scene load_steps=5 format=3 uid="uid://cj10yuh5kr7jo"]
 
 [ext_resource type="Script" path="res://Subscene/Script/player_control.gd" id="1_wnmkw"]
 [ext_resource type="Texture2D" uid="uid://dnmc6j1nj2xx5" path="res://icon.svg" id="2_qyief"]
@@ -6,17 +6,27 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqptp"]
 radius = 76.99
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbhl3"]
+radius = 73.85
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_wnmkw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pqptp")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_jbhl3")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_qyief")
 
 [node name="ShotTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 autostart = true
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

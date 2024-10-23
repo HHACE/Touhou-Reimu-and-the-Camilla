@@ -17,9 +17,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position += velocity * SPEED * delta
 	if is_off_screen():
-		set_all_process(false)
 		PoolingManager.get_node(\"bulletPool\").return_bullet(self)
-		
+		set_all_process(false)
+
 
 func is_off_screen():
 	return (position.x < 0 or position.x > get_viewport_rect().size.x or position.y < 0 or position.y > get_viewport_rect().size.y)
@@ -29,9 +29,9 @@ func set_all_process(x: bool):
 	set_physics_process(x)
 	$\".\".visible = x
 	if x == true:
-		$CollisionShape2D.call_deferred(\"set_disabled\", false)
+		$CollisionShape2D.disabled = false
 	else:
-		$CollisionShape2D.call_deferred(\"set_disabled\", true)
+		$CollisionShape2D.disabled = true
 		
 
 
