@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://cakkqitijes45"]
+
+[ext_resource type="Texture2D" uid="uid://dnmc6j1nj2xx5" path="res://icon.svg" id="1_7lk5t"]
+
+[sub_resource type="GDScript" id="GDScript_v23lp"]
+script/source = "extends Area2D
+
+const SPEED = 600
+var velocity = Vector2.ZERO
+#var bullet_pool = null
+
+func _ready() -> void:
+	pass
+	#if bullet_pool == null:
+		#queue_free()  # In case the bullet_pool is not set
+
+func _process(delta: float) -> void:
+	position += velocity * SPEED * delta
+	if is_off_screen():
+		BulletPool.return_bullet(self)
+		set_all_process(false)
+
+
+func is_off_screen():
+	return (position.x < 0 or position.x > get_viewport_rect().size.x or position.y < 0 or position.y > get_viewport_rect().size.y)
+
+func set_all_process(x: bool):
+	set_process(x)
+	set_physics_process(x)
+	$\".\".visible = x
+	$CollisionShape2D.disabled = x
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ska8f"]
+radius = 38.6
+
+[node name="reimu_bullet1" type="Area2D"]
+script = SubResource("GDScript_v23lp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7lk5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ska8f")

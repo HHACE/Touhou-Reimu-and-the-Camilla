@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://chrn037c46560"]
+
+[ext_resource type="PackedScene" uid="uid://cj10yuh5kr7jo" path="res://Subscene/player.tscn" id="1_nnjlj"]
+[ext_resource type="PackedScene" uid="uid://ewelehix6pg3" path="res://Subscene/bullet_pool.tscn" id="2_jfc6h"]
+
+[node name="Game_Prototype" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_nnjlj")]
+position = Vector2(422, 369)
+
+[node name="bulletPool" parent="." instance=ExtResource("2_jfc6h")]

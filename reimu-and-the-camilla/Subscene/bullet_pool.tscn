@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ewelehix6pg3"]
+
+[ext_resource type="Script" path="res://Subscene/Script/bullet_pool.gd" id="1_74vap"]
+
+[node name="bulletPool" type="Node2D"]
+script = ExtResource("1_74vap")
