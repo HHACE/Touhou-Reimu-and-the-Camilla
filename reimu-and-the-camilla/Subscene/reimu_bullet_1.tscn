@@ -6,16 +6,15 @@
 script/source = "extends Area2D
 
 const SPEED = 1000
-var velocity = Vector2.ZERO
+var direction = Vector2.ZERO
 #var bullet_pool = null
 
 func _ready() -> void:
 	pass
-	#if bullet_pool == null:
-		#queue_free()  # In case the bullet_pool is not set
+
 
 func _process(delta: float) -> void:
-	position += velocity * SPEED * delta
+	position += direction * SPEED * delta
 	if is_off_screen():
 		set_all_process(false)
 		PoolingManager.get_node(\"bulletPool\").return_bullet(self)

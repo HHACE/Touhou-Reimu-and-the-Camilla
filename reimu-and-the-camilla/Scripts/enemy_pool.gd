@@ -5,7 +5,7 @@ var pool = []
 
 func _ready():
 	# Pre-create a number of enemy objects and add to the pool
-	for i in range(5):
+	for i in range(10):
 		var enemy = enemy_scene.instantiate()
 		pool.append(enemy)
 		#enemy.queue_free()  # Ensure they are not active at start
