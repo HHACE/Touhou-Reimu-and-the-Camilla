@@ -1,57 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://chrn037c46560"]
+[gd_scene load_steps=7 format=3 uid="uid://chrn037c46560"]
 
-[ext_resource type="Script" path="res://Scripts/spawn_manager.gd" id="1_6apcj"]
-[ext_resource type="Texture2D" uid="uid://b2swac5tp34qv" path="res://Assets/Textures/Backgrounds/Stage1/1.png" id="1_bkf7y"]
-[ext_resource type="Script" path="res://Scripts/scrolling_background.gd" id="1_fgl08"]
+[ext_resource type="Script" path="res://Script/spawn_manager.gd" id="1_6apcj"]
+[ext_resource type="PackedScene" uid="uid://bwi5k0asfrmxx" path="res://Subscene/Stage1Background.tscn" id="1_8ej1l"]
 [ext_resource type="PackedScene" uid="uid://cj10yuh5kr7jo" path="res://Subscene/player.tscn" id="1_nnjlj"]
-[ext_resource type="Texture2D" uid="uid://cj56n3ggg4yf3" path="res://Assets/Textures/Backgrounds/Stage1/2.png" id="2_4k7ae"]
 [ext_resource type="PackedScene" uid="uid://lu2g37iyy182" path="res://Subscene/pooling_manager.tscn" id="2_h0e6o"]
-[ext_resource type="Texture2D" uid="uid://ca5p580lqjobv" path="res://Assets/Textures/Backgrounds/Stage1/3.png" id="3_v440t"]
-[ext_resource type="Texture2D" uid="uid://t2taup8vyrq0" path="res://Assets/Textures/Backgrounds/Stage1/4.png" id="4_tfdwi"]
-[ext_resource type="Texture2D" uid="uid://dlmsserdja7eb" path="res://Assets/Textures/Backgrounds/Stage1/5.png" id="5_f4215"]
-[ext_resource type="Script" path="res://Scene/stage_1_spawn_pattern.gd" id="8_ue72p"]
+[ext_resource type="Script" path="res://Script/stage_1_spawn_pattern.gd" id="8_ue72p"]
+[ext_resource type="AudioStream" uid="uid://6e22vx7yowc1" path="res://Asset/Audio/Music/DAMACTION_wip_s1_v2.mp3" id="14_smnxg"]
 
 [node name="Game_Prototype" type="Node2D"]
 z_index = -1
 
-[node name="ScrollingBackground" type="ParallaxBackground" parent="."]
-offset = Vector2(1920, 540)
-transform = Transform2D(1, 0, 0, 1, 1920, 540)
-script = ExtResource("1_fgl08")
-
-[node name="1" type="ParallaxLayer" parent="ScrollingBackground"]
-motion_scale = Vector2(0.25, 0.25)
-motion_mirroring = Vector2(3840, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ScrollingBackground/1"]
-texture = ExtResource("1_bkf7y")
-
-[node name="2" type="ParallaxLayer" parent="ScrollingBackground"]
-motion_scale = Vector2(0.3, 0.3)
-motion_mirroring = Vector2(3840, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ScrollingBackground/2"]
-texture = ExtResource("2_4k7ae")
-
-[node name="3" type="ParallaxLayer" parent="ScrollingBackground"]
-motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(3840, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ScrollingBackground/3"]
-texture = ExtResource("3_v440t")
-
-[node name="4" type="ParallaxLayer" parent="ScrollingBackground"]
-motion_scale = Vector2(0.6, 0.6)
-motion_mirroring = Vector2(3840, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ScrollingBackground/4"]
-texture = ExtResource("4_tfdwi")
-
-[node name="5" type="ParallaxLayer" parent="ScrollingBackground"]
-motion_mirroring = Vector2(3840, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ScrollingBackground/5"]
-texture = ExtResource("5_f4215")
+[node name="Stage1BG" parent="." instance=ExtResource("1_8ej1l")]
 
 [node name="Spawn_Manager" type="Node2D" parent="."]
 script = ExtResource("1_6apcj")
@@ -63,3 +22,8 @@ script = ExtResource("8_ue72p")
 
 [node name="Player" parent="." instance=ExtResource("1_nnjlj")]
 position = Vector2(422, 369)
+
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_smnxg")
+autoplay = true
+bus = &"BGM"

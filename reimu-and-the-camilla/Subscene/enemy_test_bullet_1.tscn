@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://0msapud6j5l1"]
 
 [ext_resource type="Texture2D" uid="uid://dnmc6j1nj2xx5" path="res://icon.svg" id="1_nihjy"]
-[ext_resource type="Script" path="res://Scripts/enemy_test_bullet_1.gd" id="1_yerm5"]
+[ext_resource type="Script" path="res://Script/enemy_test_bullet_1.gd" id="1_yerm5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_40odo"]
 radius = 73.15

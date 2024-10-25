@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bext7tr11ax38"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_test.gd" id="1_l0fpv"]
-[ext_resource type="Texture2D" uid="uid://dic546n6rsa7c" path="res://Asset/art/baddies jam final place holders.png" id="2_rm6au"]
-[ext_resource type="Script" path="res://Scripts/bullet_spawn_area.gd" id="3_dqtm0"]
+[ext_resource type="Script" path="res://Script/enemy_test.gd" id="1_l0fpv"]
+[ext_resource type="Texture2D" uid="uid://rjgwpjwjb2tx" path="res://Asset/Texture/Sprite/Enemy/Fairy.png" id="2_nwsd3"]
+[ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_dqtm0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tjgoy"]
 radius = 67.42
@@ -15,7 +15,7 @@ shape = SubResource("CircleShape2D_tjgoy")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_rm6au")
+texture = ExtResource("2_nwsd3")
 
 [node name="bullet_spawn_area" type="Node2D" parent="."]
 script = ExtResource("3_dqtm0")

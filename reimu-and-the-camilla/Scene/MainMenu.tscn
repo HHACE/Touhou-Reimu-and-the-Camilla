@@ -1,31 +1,35 @@
-[gd_scene load_steps=27 format=3 uid="uid://3seiw2405mbr"]
+[gd_scene load_steps=29 format=3 uid="uid://3seiw2405mbr"]
 
-[ext_resource type="Script" path="res://Scripts/UI/MainMenu.gd" id="1_bmn3a"]
-[ext_resource type="Texture2D" uid="uid://lmry0b6k3xx6" path="res://Assets/Textures/UI/TempMenuBG.png" id="1_mq8yu"]
-[ext_resource type="Texture2D" uid="uid://doastp3ituer" path="res://Assets/Textures/UI/MainMenu/StartButton.png" id="2_mwjto"]
-[ext_resource type="Texture2D" uid="uid://d116mylhcinlq" path="res://Assets/Textures/UI/Options/Disabled.png" id="3_2ejjb"]
-[ext_resource type="Texture2D" uid="uid://bvtr0ucyw25b" path="res://Assets/Textures/UI/MainMenu/OptionsButton.png" id="3_lk664"]
-[ext_resource type="Texture2D" uid="uid://cwn5qsqjjhwrc" path="res://Assets/Textures/UI/MainMenu/GalleryButton.png" id="4_bvh7s"]
-[ext_resource type="Texture2D" uid="uid://c87dm7bmyt6ur" path="res://Assets/Textures/UI/MainMenu/StartSelection.png" id="4_idv4h"]
-[ext_resource type="Texture2D" uid="uid://cs6auqc86huuu" path="res://Assets/Textures/UI/MainMenu/CreditsButton.png" id="5_358wg"]
-[ext_resource type="Texture2D" uid="uid://bd31dfhfwch14" path="res://Assets/Textures/UI/MainMenu/QuitButton.png" id="6_jc2wh"]
-[ext_resource type="Texture2D" uid="uid://dq4jeutfthgo8" path="res://Assets/Textures/UI/MainMenu/OptionsSelection.png" id="6_srh1x"]
-[ext_resource type="Texture2D" uid="uid://djyttdt63e8ej" path="res://Assets/Textures/UI/MainMenu/GallerySelection.png" id="8_5gxy0"]
-[ext_resource type="Texture2D" uid="uid://rjwnbxps3nmh" path="res://Assets/Textures/UI/MainMenu/CreditsSelection.png" id="10_0uexm"]
-[ext_resource type="Texture2D" uid="uid://trviq7yyej3b" path="res://Assets/Textures/UI/MainMenu/QuitSelection.png" id="12_8knv8"]
-[ext_resource type="Texture2D" uid="uid://b1d4uo1baodcu" path="res://Assets/Textures/UI/Options/OptionsMenuName.png" id="13_ho0e0"]
-[ext_resource type="Texture2D" uid="uid://doorl42e6yqes" path="res://Assets/Textures/UI/Options/Options.png" id="14_g4j1c"]
-[ext_resource type="Texture2D" uid="uid://dh82i5x63hvxh" path="res://Assets/Textures/UI/Gallery/GalleryMenuName.png" id="14_okm86"]
-[ext_resource type="Texture2D" uid="uid://ddr4uo1m38vda" path="res://Assets/Textures/UI/Credits/CreditsMenuName.png" id="15_4t537"]
-[ext_resource type="Texture2D" uid="uid://bu0pfreshrs7l" path="res://Assets/Textures/UI/Options/Enabled.png" id="15_sx5uc"]
-[ext_resource type="Texture2D" uid="uid://csuvtcsj20bs2" path="res://Assets/Textures/UI/Options/VolumeOn.png" id="16_gh03u"]
-[ext_resource type="Texture2D" uid="uid://xystmok1l404" path="res://Assets/Textures/UI/Options/VolumeOff.png" id="17_4ufiv"]
-[ext_resource type="Texture2D" uid="uid://cef0apvefbug6" path="res://Assets/Textures/UI/Options/MainVolumeSelection.png" id="18_b0012"]
-[ext_resource type="Texture2D" uid="uid://d1obanjj6v00y" path="res://Assets/Textures/UI/Options/SFXVolumeSelection.png" id="19_ldekm"]
-[ext_resource type="Texture2D" uid="uid://cw84flwsu82g5" path="res://Assets/Textures/UI/Options/BGMVolumeSelection.png" id="20_bowpb"]
-[ext_resource type="Texture2D" uid="uid://cn6524qob2ig2" path="res://Assets/Textures/UI/Options/VSyncSelection.png" id="21_2fjxt"]
-[ext_resource type="Texture2D" uid="uid://drubi50shkny2" path="res://Assets/Textures/UI/Options/FullScreenSelection.png" id="22_hhga8"]
-[ext_resource type="Texture2D" uid="uid://dxdkuiwru20au" path="res://Assets/Textures/UI/Options/QuitSelection.png" id="23_72fsm"]
+[ext_resource type="Script" path="res://Script/UI/MainMenu.gd" id="1_bmn3a"]
+[ext_resource type="Texture2D" uid="uid://lmry0b6k3xx6" path="res://Asset/Texture/UI/TempMenuBG.png" id="1_mq8yu"]
+[ext_resource type="Texture2D" uid="uid://doastp3ituer" path="res://Asset/Texture/UI/MainMenu/StartButton.png" id="2_mwjto"]
+[ext_resource type="Texture2D" uid="uid://d116mylhcinlq" path="res://Asset/Texture/UI/Options/Disabled.png" id="3_2ejjb"]
+[ext_resource type="Texture2D" uid="uid://bvtr0ucyw25b" path="res://Asset/Texture/UI/MainMenu/OptionsButton.png" id="3_lk664"]
+[ext_resource type="Texture2D" uid="uid://cwn5qsqjjhwrc" path="res://Asset/Texture/UI/MainMenu/GalleryButton.png" id="4_bvh7s"]
+[ext_resource type="Texture2D" uid="uid://c87dm7bmyt6ur" path="res://Asset/Texture/UI/MainMenu/StartSelection.png" id="4_idv4h"]
+[ext_resource type="Texture2D" uid="uid://cs6auqc86huuu" path="res://Asset/Texture/UI/MainMenu/CreditsButton.png" id="5_358wg"]
+[ext_resource type="Texture2D" uid="uid://bd31dfhfwch14" path="res://Asset/Texture/UI/MainMenu/QuitButton.png" id="6_jc2wh"]
+[ext_resource type="Texture2D" uid="uid://dq4jeutfthgo8" path="res://Asset/Texture/UI/MainMenu/OptionsSelection.png" id="6_srh1x"]
+[ext_resource type="Texture2D" uid="uid://djyttdt63e8ej" path="res://Asset/Texture/UI/MainMenu/GallerySelection.png" id="8_5gxy0"]
+[ext_resource type="Texture2D" uid="uid://rjwnbxps3nmh" path="res://Asset/Texture/UI/MainMenu/CreditsSelection.png" id="10_0uexm"]
+[ext_resource type="Texture2D" uid="uid://trviq7yyej3b" path="res://Asset/Texture/UI/MainMenu/QuitSelection.png" id="12_8knv8"]
+[ext_resource type="Texture2D" uid="uid://b1d4uo1baodcu" path="res://Asset/Texture/UI/Options/OptionsMenuName.png" id="13_ho0e0"]
+[ext_resource type="Texture2D" uid="uid://doorl42e6yqes" path="res://Asset/Texture/UI/Options/Options.png" id="14_g4j1c"]
+[ext_resource type="Texture2D" uid="uid://dh82i5x63hvxh" path="res://Asset/Texture/UI/Gallery/GalleryMenuName.png" id="14_okm86"]
+[ext_resource type="Texture2D" uid="uid://ddr4uo1m38vda" path="res://Asset/Texture/UI/Credits/CreditsMenuName.png" id="15_4t537"]
+[ext_resource type="Texture2D" uid="uid://bu0pfreshrs7l" path="res://Asset/Texture/UI/Options/Enabled.png" id="15_sx5uc"]
+[ext_resource type="Texture2D" uid="uid://csuvtcsj20bs2" path="res://Asset/Texture/UI/Options/VolumeOn.png" id="16_gh03u"]
+[ext_resource type="Texture2D" uid="uid://xystmok1l404" path="res://Asset/Texture/UI/Options/VolumeOff.png" id="17_4ufiv"]
+[ext_resource type="Texture2D" uid="uid://cef0apvefbug6" path="res://Asset/Texture/UI/Options/MainVolumeSelection.png" id="18_b0012"]
+[ext_resource type="Texture2D" uid="uid://d1obanjj6v00y" path="res://Asset/Texture/UI/Options/SFXVolumeSelection.png" id="19_ldekm"]
+[ext_resource type="Texture2D" uid="uid://cw84flwsu82g5" path="res://Asset/Texture/UI/Options/BGMVolumeSelection.png" id="20_bowpb"]
+[ext_resource type="Texture2D" uid="uid://cn6524qob2ig2" path="res://Asset/Texture/UI/Options/VSyncSelection.png" id="21_2fjxt"]
+[ext_resource type="Texture2D" uid="uid://drubi50shkny2" path="res://Asset/Texture/UI/Options/FullScreenSelection.png" id="22_hhga8"]
+[ext_resource type="Texture2D" uid="uid://dxdkuiwru20au" path="res://Asset/Texture/UI/Options/QuitSelection.png" id="23_72fsm"]
+[ext_resource type="AudioStream" uid="uid://cmq8onkevpvsi" path="res://Asset/Audio/Music/TitleScreen.wav" id="27_auqfv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4x16x"]
+font_size = 60
 
 [node name="MainMenu" type="Node2D" node_paths=PackedStringArray("GalleryButton", "MenuSelections", "Menus", "MainVolumeBoxes", "SFXVolumeBoxes", "BGMVolumeBoxes", "SettingsSelections", "VSyncDisplay", "FullScreenDisplay")]
 script = ExtResource("1_bmn3a")
@@ -226,47 +230,47 @@ stretch_mode = 5
 
 [node name="VolumeSquare2" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare3" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare4" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare5" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare6" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare7" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare8" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare9" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare10" type="TextureRect" parent="Options/Displays/MainVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="SfxVolume" type="HBoxContainer" parent="Options/Displays"]
@@ -283,47 +287,47 @@ stretch_mode = 5
 
 [node name="VolumeSquare2" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare3" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare4" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare5" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare6" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare7" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare8" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare9" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare10" type="TextureRect" parent="Options/Displays/SfxVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="BgmVolume" type="HBoxContainer" parent="Options/Displays"]
@@ -340,47 +344,47 @@ stretch_mode = 5
 
 [node name="VolumeSquare2" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare3" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare4" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare5" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare6" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare7" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare8" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare9" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VolumeSquare10" type="TextureRect" parent="Options/Displays/BgmVolume"]
 layout_mode = 2
-texture = ExtResource("17_4ufiv")
+texture = ExtResource("16_gh03u")
 stretch_mode = 5
 
 [node name="VSync" type="TextureRect" parent="Options/Displays"]
@@ -390,7 +394,7 @@ offset_top = 553.0
 offset_right = 1572.0
 offset_bottom = 705.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_2ejjb")
+texture = ExtResource("15_sx5uc")
 
 [node name="FullScreen" type="TextureRect" parent="Options/Displays"]
 layout_mode = 0
@@ -473,7 +477,6 @@ texture = ExtResource("23_72fsm")
 stretch_mode = 4
 
 [node name="Gallery" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -491,6 +494,27 @@ offset_bottom = 244.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_okm86")
+
+[node name="GalleryTypeSelection" type="Control" parent="Gallery"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Art" type="Control" parent="Gallery"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Music" type="Control" parent="Gallery"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Credits" type="Control" parent="."]
 visible = false
@@ -511,3 +535,19 @@ offset_bottom = 244.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("15_4t537")
+
+[node name="Label" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 210.0
+offset_right = 1530.0
+offset_bottom = 889.0
+text = "CREDITS WILL GO HERE"
+label_settings = SubResource("LabelSettings_4x16x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuMusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_auqfv")
+autoplay = true
+bus = &"BGM"

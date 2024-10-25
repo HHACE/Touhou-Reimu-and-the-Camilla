@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj10yuh5kr7jo"]
+[gd_scene load_steps=6 format=3 uid="uid://cj10yuh5kr7jo"]
 
-[ext_resource type="Script" path="res://Scripts/player_control.gd" id="1_wnmkw"]
-[ext_resource type="Texture2D" uid="uid://bf5ne7iub7kum" path="res://Asset/art/reimu sprite.png" id="2_6xp2x"]
+[ext_resource type="Script" path="res://Script/player_control.gd" id="1_wnmkw"]
+[ext_resource type="Texture2D" uid="uid://dngcglub761kb" path="res://Asset/Texture/Sprite/Player/Reimu.png" id="2_ufuon"]
+[ext_resource type="Texture2D" uid="uid://dej0w632fjcjq" path="res://Asset/Texture/Sprite/Player/HitCircle.png" id="3_2hvgi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pqptp"]
 radius = 76.99
@@ -25,11 +26,17 @@ shape = SubResource("CircleShape2D_jbhl3")
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 z_index = 2
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_6xp2x")
+texture = ExtResource("2_ufuon")
+
+[node name="HitCircle" type="Sprite2D" parent="AnimatedSprite2D"]
+z_index = 3
+position = Vector2(86, -10)
+scale = Vector2(1.06061, 1.06061)
+texture = ExtResource("3_2hvgi")
 
 [node name="afterEffect" type="Sprite2D" parent="AnimatedSprite2D"]
 z_index = 1
-texture = ExtResource("2_6xp2x")
+texture = ExtResource("2_ufuon")
 
 [node name="ShotTimer" type="Timer" parent="."]
 wait_time = 0.1
