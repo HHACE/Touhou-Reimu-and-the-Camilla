@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://86y1thkl0k4i"]
+
+[ext_resource type="Script" path="res://Script/UI/game_over.gd" id="1_f46sy"]
+
+[node name="GameOver" type="Panel"]
+process_mode = 3
+visible = false
+z_index = 20
+offset_right = 1957.0
+offset_bottom = 1113.0
+script = ExtResource("1_f46sy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 498.0
+theme_override_font_sizes/font_size = 200
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="Button" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 681.0
+offset_right = 756.0
+offset_bottom = 830.0
+theme_override_font_sizes/font_size = 50
+text = "Try again"
+
+[node name="mainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1184.0
+offset_top = 694.0
+offset_right = 1636.0
+offset_bottom = 843.0
+theme_override_font_sizes/font_size = 50
+text = "Menu"
