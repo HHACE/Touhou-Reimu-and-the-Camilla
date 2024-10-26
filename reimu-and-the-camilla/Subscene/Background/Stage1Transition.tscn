@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://2qthk5jnc6an"]
+
+[ext_resource type="Script" path="res://Script/scrolling_background.gd" id="1_qq60q"]
+[ext_resource type="Texture2D" uid="uid://c1147rhid6i48" path="res://Asset/Texture/Background/Stage1/Transition/cave_background.png" id="2_vbb8r"]
+[ext_resource type="Texture2D" uid="uid://dgll7xhu4p14u" path="res://Asset/Texture/Background/Stage1/Transition/cave_enter.png" id="3_y721r"]
+
+[node name="Stage1Transition" type="ParallaxBackground"]
+offset = Vector2(1920, 540)
+transform = Transform2D(1, 0, 0, 1, 1920, 540)
+script = ExtResource("1_qq60q")
+ScrollSpeed = 10.0
+
+[node name="1" type="ParallaxLayer" parent="."]
+position = Vector2(2300, 0)
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1740, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="1"]
+scale = Vector2(1.12946, 1)
+texture = ExtResource("2_vbb8r")
+
+[node name="2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="2"]
+position = Vector2(955, 3)
+texture = ExtResource("3_y721r")

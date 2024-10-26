@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cqk75ekwj26lx" path="res://Asset/Texture/Background/Stage3/5.png" id="6_37ul1"]
 [ext_resource type="Texture2D" uid="uid://bhkwl6b4de5qe" path="res://Asset/Texture/Background/Stage3/Tree/Full tree.png" id="7_bs5x1"]
 
-[node name="Stage2BG" type="ParallaxBackground"]
+[node name="Stage3BG" type="ParallaxBackground"]
 offset = Vector2(1920, 540)
 transform = Transform2D(1, 0, 0, 1, 1920, 540)
 script = ExtResource("1_2k50b")
