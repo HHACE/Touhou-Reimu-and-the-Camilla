@@ -5,7 +5,27 @@ var facing_direction = Vector2.RIGHT
 var direction = Vector2.ZERO
 
 
+
 func _ready() -> void:
+	GameManager.connect("_GameOver", _on_game_over)
+	GameManager.connect("_Pause",_on_pause)
+	GameManager.connect("_Resume",_on_resume)
+	GameManager.connect("_win", _on_win)
+
+
+var is_paused: bool = false
+
+func _on_game_over():
+	is_paused = !is_paused
+	get_tree().paused = is_paused
+	$"../GameOver"._set_all_process(true)
+func _on_pause():
+	is_paused = !is_paused
+	get_tree().paused = is_paused
+func _on_resume():
+	is_paused = !is_paused
+	get_tree().paused = is_paused
+func _on_win():
 	pass
 
 func shoot_bullet():
@@ -22,25 +42,27 @@ func _input(event):
 		if $AnimatedSprite2D.flip_h == false:
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D/afterEffect.flip_h = true
-			$AnimatedSprite2D/HitCircle.position = Vector2(-86, -10);
 		else:
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D/afterEffect.flip_h = false
-			$AnimatedSprite2D/HitCircle.position = Vector2(86, -10);
 		facing_direction.x = -facing_direction.x
 		
 		var tween = create_tween() 
 		tween.set_trans(Tween.TRANS_LINEAR)
-		#$AnimatedSprite2D/afterEffect.visible = true
-		#$AnimatedSprite2D/afterEffect.scale = Vector2(1, 1)
-		#$AnimatedSprite2D/afterEffect.modulate = Color(1, 1, 1, 0.75)
+
 		tween.parallel().tween_property($AnimatedSprite2D/afterEffect, "scale", Vector2(1, 1), 0.0)
 		tween.parallel().tween_property($AnimatedSprite2D/afterEffect, "modulate", Color(1, 1, 1, 1), 0.0)
 		
 		tween.tween_property($AnimatedSprite2D/afterEffect, "scale", Vector2(2, 2), 0.5)
 		tween.parallel().tween_property($AnimatedSprite2D/afterEffect, "modulate", Color(1, 1, 1, 0), 0.5)
-		#tween.tween_property($AnimatedSprite2D/afterEffect, "visible", false, 0)
-		#$AnimatedSprite2D/afterEffect.visible = false
+
+		
+	if Input.is_action_just_pressed("cancel"):
+		#if $"../Pause".visible==false:
+		GameManager.emit_signal("_Pause")
+		$"../Pause"._set_all_process(true)
+		#else:
+			#$"../Pause"._set_all_process(false)
 		
 func get_input() -> Vector2:
 	var direction := Vector2()
@@ -68,10 +90,73 @@ func _physics_process(delta: float) -> void:
 	var viewport_size = get_viewport().size
 	position.x = clamp(position.x, 0, viewport_size.x)
 	position.y = clamp(position.y, 0, viewport_size.y)
+	
+func _set_all_process(x : bool):
+	set_process(x)
+	set_physics_process(x)
+	set_process_input(x)
 
+
+func _set_invincible(x : bool):
+	if x == true:
+		hit_buffer = true
+		$ShotTimer.start()
+		$Area2D/CollisionShape2D.call_deferred("set_disabled", false)
+	else:
+		$ShotTimer.stop()
+		$Area2D/CollisionShape2D.call_deferred("set_disabled", true)
+		
 func _on_shot_timer_timeout() -> void:
 	shoot_bullet()
 
+var hit_buffer = true
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if not area.is_in_group("PlayerBullet"):
+	if hit_buffer and not area.is_in_group("PlayerBullet"):
+		hit_buffer = false  # Disable further hits until reset
 		print("Player got hit")
+		GameManager.Playerlife -= 1
+		death_animation()
+		
+		# Handle Game Over condition
+		if GameManager.Playerlife <= 0:
+			await get_tree().create_timer(1.0).timeout
+			GameManager.emit_signal("_GameOver")
+
+
+func death_animation():
+	_set_all_process(false)
+	_set_invincible(false)
+	var tween = create_tween() 
+	tween.set_trans(Tween.TRANS_LINEAR)
+
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2(2, 2), 0.5)
+	tween.parallel().tween_property($AnimatedSprite2D, "modulate", Color(1, 1, 1, 0), 0.5)
+	
+	await get_tree().create_timer(0.6).timeout
+	if GameManager.Playerlife > 0:
+		spawn_animation()
+	
+	
+
+func spawn_animation():
+	var spawnPoint = Vector2(-100, 540)
+	var targetPoint = Vector2(280, 540)
+	
+	$".".position = spawnPoint
+	#await get_tree().create_timer(0.1).timeout 
+	#$AnimatedSprite2D.scale = Vector2(1, 1)
+	#$AnimatedSprite2D.modulate = Color(1, 1, 1, 1)
+	var tween = create_tween() 
+	tween.set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($AnimatedSprite2D, "scale", Vector2(0.3, 0.3), 0.0)
+	tween.parallel().tween_property($AnimatedSprite2D, "modulate", Color(1, 1, 1, 0.5), 0.0)
+	
+	tween.tween_property($".", "position", targetPoint, 1.0)
+	#tween.parallel().tween_property($AnimatedSprite2D, "modulate", Color(1, 1, 1, 0), 0.5)
+	
+	await get_tree().create_timer(1.0).timeout 
+	_set_all_process(true)
+	await get_tree().create_timer(0.5).timeout 
+	#tween.tween_property($AnimatedSprite2D, "modulate", Color(1, 1, 1, 1), 0.0)
+	$AnimatedSprite2D.modulate = Color(1, 1, 1, 1)
+	_set_invincible(true)

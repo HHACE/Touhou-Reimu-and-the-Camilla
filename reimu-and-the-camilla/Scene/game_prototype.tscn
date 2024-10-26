@@ -1,16 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://chrn037c46560"]
+[gd_scene load_steps=18 format=3 uid="uid://chrn037c46560"]
 
 [ext_resource type="Script" path="res://Script/spawn_manager.gd" id="1_6apcj"]
 [ext_resource type="PackedScene" uid="uid://bwi5k0asfrmxx" path="res://Subscene/Stage1Background.tscn" id="1_8ej1l"]
 [ext_resource type="PackedScene" uid="uid://cj10yuh5kr7jo" path="res://Subscene/player.tscn" id="1_nnjlj"]
 [ext_resource type="PackedScene" uid="uid://lu2g37iyy182" path="res://Subscene/pooling_manager.tscn" id="2_h0e6o"]
+[ext_resource type="PackedScene" uid="uid://d0j7k7xl7r3jq" path="res://Subscene/game_manager.tscn" id="2_ty40o"]
 [ext_resource type="Script" path="res://Script/stage_1_spawn_pattern.gd" id="8_ue72p"]
+[ext_resource type="Script" path="res://Script/UI/ingame_ui.gd" id="8_vajx6"]
+[ext_resource type="Script" path="res://Script/UI/game_over.gd" id="9_uc6h8"]
+[ext_resource type="Script" path="res://Script/UI/pause.gd" id="10_ytc12"]
+[ext_resource type="Texture2D" uid="uid://lmry0b6k3xx6" path="res://Asset/Texture/UI/TempMenuBG.png" id="11_7p032"]
+[ext_resource type="Texture2D" uid="uid://doastp3ituer" path="res://Asset/Texture/UI/MainMenu/StartButton.png" id="12_vwde4"]
+[ext_resource type="Texture2D" uid="uid://c87dm7bmyt6ur" path="res://Asset/Texture/UI/MainMenu/StartSelection.png" id="13_o2nck"]
+[ext_resource type="Texture2D" uid="uid://bvtr0ucyw25b" path="res://Asset/Texture/UI/MainMenu/OptionsButton.png" id="14_70v7e"]
 [ext_resource type="AudioStream" uid="uid://6e22vx7yowc1" path="res://Asset/Audio/Music/DAMACTION_wip_s1_v2.mp3" id="14_smnxg"]
+[ext_resource type="Texture2D" uid="uid://dq4jeutfthgo8" path="res://Asset/Texture/UI/MainMenu/OptionsSelection.png" id="15_0gunc"]
+[ext_resource type="Texture2D" uid="uid://bd31dfhfwch14" path="res://Asset/Texture/UI/MainMenu/QuitButton.png" id="16_425hh"]
+[ext_resource type="Texture2D" uid="uid://trviq7yyej3b" path="res://Asset/Texture/UI/MainMenu/QuitSelection.png" id="17_qwt1g"]
 
 [node name="Game_Prototype" type="Node2D"]
 z_index = -1
 
 [node name="Stage1BG" parent="." instance=ExtResource("1_8ej1l")]
+
+[node name="GameManager" parent="." instance=ExtResource("2_ty40o")]
 
 [node name="Spawn_Manager" type="Node2D" parent="."]
 script = ExtResource("1_6apcj")
@@ -27,3 +40,175 @@ position = Vector2(422, 369)
 stream = ExtResource("14_smnxg")
 autoplay = true
 bus = &"BGM"
+
+[node name="UI" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+offset_right = 614.0
+offset_bottom = 154.0
+script = ExtResource("8_vajx6")
+
+[node name="Life" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 227.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 50
+text = "Life: 0"
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 2.0
+offset_right = 615.0
+offset_bottom = 155.0
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+vertical_alignment = 1
+
+[node name="GameOver" type="Panel" parent="."]
+process_mode = 3
+visible = false
+z_index = 20
+offset_right = 1957.0
+offset_bottom = 1113.0
+script = ExtResource("9_uc6h8")
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 498.0
+theme_override_font_sizes/font_size = 200
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="restart" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 681.0
+offset_right = 756.0
+offset_bottom = 830.0
+theme_override_font_sizes/font_size = 50
+text = "Try again"
+
+[node name="mainMenu" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_left = 1184.0
+offset_top = 694.0
+offset_right = 1636.0
+offset_bottom = 843.0
+theme_override_font_sizes/font_size = 50
+text = "Menu"
+
+[node name="Pause" type="Panel" parent="."]
+process_mode = 3
+visible = false
+z_index = 20
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_ytc12")
+
+[node name="MenuBG" type="TextureRect" parent="Pause"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_7p032")
+
+[node name="Start" type="TextureRect" parent="Pause"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 162.0
+offset_right = 974.0
+offset_bottom = 499.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_vwde4")
+
+[node name="StartSelection" type="TextureRect" parent="Pause/Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.5
+offset_top = -340.5
+offset_right = 457.5
+offset_bottom = 226.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_o2nck")
+
+[node name="Start2" type="TextureRect" parent="Pause"]
+layout_mode = 0
+offset_left = 782.0
+offset_top = 321.0
+offset_right = 1369.0
+offset_bottom = 658.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_vwde4")
+
+[node name="StartSelection" type="TextureRect" parent="Pause/Start2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -469.5
+offset_top = -340.5
+offset_right = 457.5
+offset_bottom = 226.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_o2nck")
+
+[node name="Options" type="TextureRect" parent="Pause"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 538.0
+offset_right = 1193.0
+offset_bottom = 875.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_70v7e")
+
+[node name="OptionsSelection" type="TextureRect" parent="Pause/Options"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -528.5
+offset_top = -378.5
+offset_right = 545.5
+offset_bottom = 225.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_0gunc")
+
+[node name="Quit" type="TextureRect" parent="Pause"]
+layout_mode = 0
+offset_left = 835.0
+offset_top = 722.0
+offset_right = 1419.0
+offset_bottom = 1066.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_425hh")
+
+[node name="QuitSelection" type="TextureRect" parent="Pause/Quit"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -346.0
+offset_top = -380.0
+offset_right = 449.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_qwt1g")

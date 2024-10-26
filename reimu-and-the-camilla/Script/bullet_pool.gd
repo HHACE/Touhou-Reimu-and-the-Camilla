@@ -10,12 +10,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _ready() -> void:
-	for i in range(100):  # Pre-create 100 bullets
-		var bullet = bullet_scene.instantiate()
-		var enemy_test_bullet = enemy_test_bullet_scene.instantiate()
-		bullet_pool.append(bullet)
-		enemy_test_bullet_pool.append(enemy_test_bullet)
-		#bullet.queue_free()
+	reset_pool()
 
 func get_bullet():
 	if bullet_pool.size() > 0:
@@ -41,3 +36,14 @@ func return_enemy_test_bullet(bullet):
 	#print("meme")
 	enemy_test_bullet_pool.append(bullet)
 	#bullet.queue_free()
+
+func reset_pool():
+	# Pre-create a number of enemy objects and add to the pool
+	bullet_pool.clear()
+	enemy_test_bullet_pool.clear()
+	for i in range(100):  # Pre-create 100 bullets
+		var bullet = bullet_scene.instantiate()
+		var enemy_test_bullet = enemy_test_bullet_scene.instantiate()
+		bullet_pool.append(bullet)
+		enemy_test_bullet_pool.append(enemy_test_bullet)
+		#bullet.queue_free()

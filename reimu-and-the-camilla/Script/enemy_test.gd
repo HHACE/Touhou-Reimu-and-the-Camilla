@@ -34,7 +34,7 @@ func set_all_process(x: bool):
 		$CollisionShape2D.call_deferred("set_disabled", true)
 
 func reset_all_property():
-	Health = 5.0;
+	Health = 3.0;
 
 func is_off_screen() -> bool:
 	var screen_size = get_viewport().size * 1.25
@@ -50,6 +50,7 @@ func deal_damage(damage: float):
 	flash_red()
 	#TweenManager.flash_red(self)
 	if Health <= 0:
+		GameManager.score += 100
 		return_self()
 
 func flash_red() -> void:
