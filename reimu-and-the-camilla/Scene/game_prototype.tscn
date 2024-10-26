@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chrn037c46560"]
+[gd_scene load_steps=26 format=3 uid="uid://chrn037c46560"]
 
 [ext_resource type="Script" path="res://Script/spawn_manager.gd" id="1_6apcj"]
 [ext_resource type="PackedScene" uid="uid://bwi5k0asfrmxx" path="res://Subscene/Stage1Background.tscn" id="1_8ej1l"]
@@ -17,6 +17,56 @@
 [ext_resource type="Texture2D" uid="uid://dq4jeutfthgo8" path="res://Asset/Texture/UI/MainMenu/OptionsSelection.png" id="15_0gunc"]
 [ext_resource type="Texture2D" uid="uid://bd31dfhfwch14" path="res://Asset/Texture/UI/MainMenu/QuitButton.png" id="16_425hh"]
 [ext_resource type="Texture2D" uid="uid://trviq7yyej3b" path="res://Asset/Texture/UI/MainMenu/QuitSelection.png" id="17_qwt1g"]
+[ext_resource type="Texture2D" uid="uid://dngcglub761kb" path="res://Asset/Texture/Sprite/Player/Reimu.png" id="18_732da"]
+[ext_resource type="Texture2D" uid="uid://whq35gaqj28j" path="res://Asset/Texture/Sprite/Enemy/Yukari.png" id="18_n7idu"]
+[ext_resource type="Script" path="res://Scene/dialogue_box.gd" id="18_ygjg2"]
+[ext_resource type="Script" path="res://Scene/dialogue_holder.gd" id="20_1vsgk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb4ts"]
+atlas = ExtResource("18_732da")
+region = Rect2(0, 0, 100, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3m7h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_732da")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb4ts")
+}],
+"loop": true,
+"name": &"hide",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khlwc"]
+atlas = ExtResource("18_732da")
+region = Rect2(0, 0, 100, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dseh3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_n7idu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khlwc")
+}],
+"loop": true,
+"name": &"hide",
+"speed": 5.0
+}]
 
 [node name="Game_Prototype" type="Node2D"]
 z_index = -1
@@ -115,6 +165,7 @@ offset_bottom = 40.0
 texture = ExtResource("11_7p032")
 
 [node name="Start" type="TextureRect" parent="Pause"]
+visible = false
 layout_mode = 0
 offset_left = 387.0
 offset_top = 162.0
@@ -139,6 +190,7 @@ grow_vertical = 2
 texture = ExtResource("13_o2nck")
 
 [node name="Start2" type="TextureRect" parent="Pause"]
+visible = false
 layout_mode = 0
 offset_left = 782.0
 offset_top = 321.0
@@ -164,6 +216,7 @@ grow_vertical = 2
 texture = ExtResource("13_o2nck")
 
 [node name="Options" type="TextureRect" parent="Pause"]
+visible = false
 layout_mode = 0
 offset_left = 420.0
 offset_top = 538.0
@@ -189,6 +242,7 @@ grow_vertical = 2
 texture = ExtResource("15_0gunc")
 
 [node name="Quit" type="TextureRect" parent="Pause"]
+visible = false
 layout_mode = 0
 offset_left = 835.0
 offset_top = 722.0
@@ -212,3 +266,55 @@ offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_qwt1g")
+
+[node name="Label" type="Label" parent="Pause"]
+layout_mode = 0
+offset_left = 620.0
+offset_top = 150.0
+offset_right = 1289.0
+offset_bottom = 503.0
+theme_override_font_sizes/font_size = 200
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DialogueBox" type="Panel" parent="."]
+process_mode = 3
+visible = false
+z_index = 19
+offset_right = 1986.0
+offset_bottom = 1127.0
+script = ExtResource("18_ygjg2")
+
+[node name="Reimu" type="AnimatedSprite2D" parent="DialogueBox"]
+position = Vector2(449, 595)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_t3m7h")
+animation = &"hide"
+autoplay = "default"
+
+[node name="NPC" type="AnimatedSprite2D" parent="DialogueBox"]
+position = Vector2(1466, 620)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_dseh3")
+animation = &"hide"
+autoplay = "default"
+
+[node name="TextBox" type="Panel" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 718.0
+offset_right = 1861.0
+offset_bottom = 1045.0
+
+[node name="dialogue" type="Label" parent="DialogueBox/TextBox"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 23.0
+offset_right = 1744.0
+offset_bottom = 306.0
+theme_override_font_sizes/font_size = 100
+text = "Text"
+
+[node name="dialogueHolder" type="Node2D" parent="DialogueBox"]
+script = ExtResource("20_1vsgk")

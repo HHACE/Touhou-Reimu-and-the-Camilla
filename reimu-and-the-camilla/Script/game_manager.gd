@@ -8,13 +8,17 @@ var score = 0
 
 signal _GameOver
 signal _Pause
+signal _Dialogue
 signal _Resume
 signal _win
+
+var isDialogue = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect("_GameOver", _on_game_over)
 	connect("_Pause",_on_pause)
+	connect("_Dialogue",_on_dialogue)
 	connect("_Resume",_on_resume)
 	connect("_win", _on_win)
 
@@ -29,16 +33,33 @@ func _process(delta: float) -> void:
 		last_milestone += milestone_step
 		await get_tree().create_timer(1.0).timeout 
 		milestone_buffer = false
-	
+
+var is_paused: bool = false
 func _on_game_over():
 	#pass
 	print("_on_game_over")
+	is_paused = !is_paused
+	get_tree().paused = is_paused
 func _on_pause():
 	#pass
-	print("_on_pause")
+	if isDialogue==false:
+		print("_on_pause")
+		is_paused = !is_paused
+		get_tree().paused = is_paused
+	
+	
+func _on_dialogue():
+	#pass
+	print("_on_dialogue")
+	isDialogue= !isDialogue
+	is_paused = !is_paused
+	get_tree().paused = is_paused
 func _on_resume():
 	#pass
-	print("_on_resume")
+	if isDialogue==false:
+		print("_on_resume")
+		is_paused = !is_paused
+		get_tree().paused = is_paused
 func _on_win():
 	#pass
 	print("_on_win")

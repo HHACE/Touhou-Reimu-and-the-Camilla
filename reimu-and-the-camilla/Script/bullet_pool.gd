@@ -51,7 +51,7 @@ func reset_pool():
 	enemy_test_bullet_pool.clear()
 	enemy_test_bullet_2_pool.clear()
 	
-	for i in range(100):  # Pre-create 100 bullets
+	for i in range(1000):  # Pre-create 100 bullets
 		var bullet = bullet_scene.instantiate()
 		var enemy_test_bullet = enemy_test_bullet_scene.instantiate()
 		var enemy_test_bullet_2 = enemy_test_bullet_2_scene.instantiate()

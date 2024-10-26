@@ -16,15 +16,17 @@ func _ready() -> void:
 var is_paused: bool = false
 
 func _on_game_over():
-	is_paused = !is_paused
-	get_tree().paused = is_paused
+	#is_paused = !is_paused
+	#get_tree().paused = is_paused
 	$"../GameOver"._set_all_process(true)
 func _on_pause():
-	is_paused = !is_paused
-	get_tree().paused = is_paused
+	pass
+	#is_paused = !is_paused
+	#get_tree().paused = is_paused
 func _on_resume():
-	is_paused = !is_paused
-	get_tree().paused = is_paused
+	pass
+	#is_paused = !is_paused
+	#get_tree().paused = is_paused
 func _on_win():
 	pass
 
@@ -63,6 +65,9 @@ func _input(event):
 		$"../Pause"._set_all_process(true)
 		#else:
 			#$"../Pause"._set_all_process(false)
+	if Input.is_action_just_pressed("confirm"):
+		GameManager.emit_signal("_Dialogue")
+		#_set_all_process(false)
 		
 func get_input() -> Vector2:
 	var direction := Vector2()

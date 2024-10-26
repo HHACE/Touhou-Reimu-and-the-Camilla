@@ -28,7 +28,7 @@ var enemy_butterfly = [
 var enemy_boss_yukari = [
 	{
 		"direction": [Vector2(-1, 0), Vector2(-0.75, 0.75), Vector2(-0.75, -0.75), Vector2(-0.875, 0.35), Vector2(-0.875, -0.35)],
-		"interval": 3.0,
+		"interval": 0.1,
 		"bullet_scene": "test_bullet_2"
 	}
 ]
