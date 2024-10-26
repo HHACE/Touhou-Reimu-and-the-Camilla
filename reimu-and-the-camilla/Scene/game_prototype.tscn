@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://chrn037c46560"]
 
 [ext_resource type="Script" path="res://Script/spawn_manager.gd" id="1_6apcj"]
-[ext_resource type="PackedScene" uid="uid://bwi5k0asfrmxx" path="res://Subscene/Stage1Background.tscn" id="1_8ej1l"]
+[ext_resource type="PackedScene" uid="uid://bwi5k0asfrmxx" path="res://Subscene/Background/Stage1Background.tscn" id="1_8ej1l"]
 [ext_resource type="PackedScene" uid="uid://cj10yuh5kr7jo" path="res://Subscene/Player/player.tscn" id="1_nnjlj"]
 [ext_resource type="PackedScene" uid="uid://lu2g37iyy182" path="res://Subscene/pooling_manager.tscn" id="2_h0e6o"]
 [ext_resource type="PackedScene" uid="uid://d0j7k7xl7r3jq" path="res://Subscene/game_manager.tscn" id="2_ty40o"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://86y1thkl0k4i" path="res://Subscene/UI/game_over.tscn" id="9_hqtg6"]
 [ext_resource type="PackedScene" uid="uid://cuuqcxon8s4bh" path="res://Subscene/UI/pause.tscn" id="10_txtm1"]
 [ext_resource type="PackedScene" uid="uid://c6qgsaptpa3cy" path="res://Subscene/UI/dialogue_box.tscn" id="11_bog61"]
-[ext_resource type="AudioStream" uid="uid://6e22vx7yowc1" path="res://Asset/Audio/Music/DAMACTION_wip_s1_v2.mp3" id="14_smnxg"]
+[ext_resource type="AudioStream" uid="uid://uponymk6c8rf" path="res://Asset/Audio/Music/Stage1.wav" id="14_smnxg"]
 
 [node name="Game_Prototype" type="Node2D"]
 z_index = -1

@@ -161,6 +161,7 @@ texture = ExtResource("12_8knv8")
 [node name="Options" parent="." instance=ExtResource("13_sqjnu")]
 
 [node name="Gallery" parent="." instance=ExtResource("25_dhc5v")]
+visible = false
 
 [node name="Credits" parent="." instance=ExtResource("26_0qhp8")]
 script = ExtResource("28_j0jey")
