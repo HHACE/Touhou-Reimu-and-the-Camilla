@@ -18,10 +18,17 @@ func _ready() -> void:
 	connect("_Resume",_on_resume)
 	connect("_win", _on_win)
 
+var last_milestone = 0
+var milestone_step = 100000  
+var milestone_buffer = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if GameManager.score >= last_milestone + milestone_step  and milestone_buffer==false:
+		milestone_buffer = true
+		Playerlife += 1
+		last_milestone += milestone_step
+		await get_tree().create_timer(1.0).timeout 
+		milestone_buffer = false
 	
 func _on_game_over():
 	#pass

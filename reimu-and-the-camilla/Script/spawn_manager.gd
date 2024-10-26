@@ -34,7 +34,8 @@ func _on_timer_timeout():
 var enemy_funcs = {
 	"enemy_test": PoolingManager.get_node("enemyPool").get_enemy_test,
 	"enemy_duck": PoolingManager.get_node("enemyPool").get_enemy_duck,
-	"enemy_butterfly": PoolingManager.get_node("enemyPool").get_enemy_butterfly
+	"enemy_butterfly": PoolingManager.get_node("enemyPool").get_enemy_butterfly,
+	"enemy_boss_yukari": PoolingManager.get_node("enemyPool").get_enemy_boss_yukari
 }
 
 func _spawn_enemy(position, enemy_scene):

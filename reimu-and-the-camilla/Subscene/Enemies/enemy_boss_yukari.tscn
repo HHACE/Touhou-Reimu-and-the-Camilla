@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm5xnc68cj0v0"]
+
+[ext_resource type="Texture2D" uid="uid://whq35gaqj28j" path="res://Asset/Texture/Sprite/Enemy/Yukari.png" id="1_6t2qq"]
+[ext_resource type="Script" path="res://Script/enemy_boss_yukari.gd" id="1_omjyi"]
+[ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="2_0d4rv"]
+[ext_resource type="Script" path="res://Script/bullet_pattern.gd" id="3_ephsp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8tgs"]
+radius = 105.7
+
+[node name="enemy_boss_yukari" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_omjyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a8tgs")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_6t2qq")
+
+[node name="bullet_spawn_area" type="Node2D" parent="."]
+script = ExtResource("2_0d4rv")
+
+[node name="bulletPattern" type="Node2D" parent="bullet_spawn_area"]
+script = ExtResource("3_ephsp")
+
+[node name="name" type="Node2D" parent="bullet_spawn_area"]
+
+[node name="enemy_boss_yukari" type="Node2D" parent="bullet_spawn_area/name"]
+
+[node name="ShotTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ShotTimer" to="bullet_spawn_area" method="_on_shot_timer_timeout"]

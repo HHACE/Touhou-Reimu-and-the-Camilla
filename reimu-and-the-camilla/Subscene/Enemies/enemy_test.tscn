@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bext7tr11ax38"]
+[gd_scene load_steps=6 format=3 uid="uid://bext7tr11ax38"]
 
 [ext_resource type="Script" path="res://Script/enemy_test.gd" id="1_7rxbl"]
 [ext_resource type="Texture2D" uid="uid://rjgwpjwjb2tx" path="res://Asset/Texture/Sprite/Enemy/Fairy.png" id="2_474di"]
 [ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_sfipp"]
+[ext_resource type="Script" path="res://Script/bullet_pattern.gd" id="4_blrap"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tjgoy"]
 radius = 67.42
@@ -19,6 +20,13 @@ texture = ExtResource("2_474di")
 
 [node name="bullet_spawn_area" type="Node2D" parent="."]
 script = ExtResource("3_sfipp")
+
+[node name="bulletPattern" type="Node2D" parent="bullet_spawn_area"]
+script = ExtResource("4_blrap")
+
+[node name="name" type="Node2D" parent="bullet_spawn_area"]
+
+[node name="enemy_test" type="Node2D" parent="bullet_spawn_area/name"]
 
 [node name="ShotTimer" type="Timer" parent="."]
 autostart = true

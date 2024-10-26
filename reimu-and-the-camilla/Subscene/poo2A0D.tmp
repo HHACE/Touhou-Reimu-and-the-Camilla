@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://lu2g37iyy182"]
+
+[ext_resource type="Script" path="res://Script/enemy_pool.gd" id="1_rcm2f"]
+[ext_resource type="PackedScene" uid="uid://ewelehix6pg3" path="res://Subscene/bullet_pool.tscn" id="2_2nyvn"]
+
+[node name="Pooling_Manager" type="Node2D"]
+
+[node name="enemyPool" type="Node2D" parent="."]
+script = ExtResource("1_rcm2f")
+
+[node name="bulletPool" parent="." instance=ExtResource("2_2nyvn")]

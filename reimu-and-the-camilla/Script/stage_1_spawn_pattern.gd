@@ -17,6 +17,11 @@ var patterns = [
 		"positions": [Vector2(-100, 700), Vector2(2000, 700), Vector2(-100, 100), Vector2(2000, 100)],
 		"interval": 1.0,
 		"enemy_scene": "enemy_butterfly"
+	},
+	{
+		"positions": [Vector2(1566, 545)],
+		"interval": 3.0,
+		"enemy_scene": "enemy_boss_yukari"
 	}
 	
 ]

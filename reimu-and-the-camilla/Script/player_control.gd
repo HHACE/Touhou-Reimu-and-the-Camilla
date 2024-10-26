@@ -113,7 +113,7 @@ var hit_buffer = true
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if hit_buffer and not area.is_in_group("PlayerBullet"):
 		hit_buffer = false  # Disable further hits until reset
-		print("Player got hit")
+		#print("Player got hit")
 		GameManager.Playerlife -= 1
 		death_animation()
 		
