@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl1jb4rnx6npw"]
+
+[ext_resource type="Script" path="res://Script/enemy_duck.gd" id="1_41pb4"]
+[ext_resource type="Texture2D" uid="uid://cm1dfx3emyg7m" path="res://Asset/Texture/Sprite/Enemy/Duck.png" id="1_pi026"]
+[ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="2_70oe1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0a8uj"]
+radius = 38.71
+
+[node name="enemy_duck" type="Area2D" groups=["Enemy"]]
+script = ExtResource("1_41pb4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0a8uj")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_pi026")
+
+[node name="bullet_spawn_area" type="Node2D" parent="."]
+script = ExtResource("2_70oe1")
+
+[node name="ShotTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ShotTimer" to="bullet_spawn_area" method="_on_shot_timer_timeout"]

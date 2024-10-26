@@ -1,24 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://bext7tr11ax38"]
 
-[ext_resource type="Script" path="res://Script/enemy_test.gd" id="1_l0fpv"]
-[ext_resource type="Texture2D" uid="uid://rjgwpjwjb2tx" path="res://Asset/Texture/Sprite/Enemy/Fairy.png" id="2_nwsd3"]
-[ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_dqtm0"]
+[ext_resource type="Script" path="res://Script/enemy_test.gd" id="1_7rxbl"]
+[ext_resource type="Texture2D" uid="uid://rjgwpjwjb2tx" path="res://Asset/Texture/Sprite/Enemy/Fairy.png" id="2_474di"]
+[ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_sfipp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tjgoy"]
 radius = 67.42
 
 [node name="enemy_test" type="Area2D" groups=["Enemy"]]
-script = ExtResource("1_l0fpv")
+script = ExtResource("1_7rxbl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tjgoy")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_nwsd3")
+texture = ExtResource("2_474di")
 
 [node name="bullet_spawn_area" type="Node2D" parent="."]
-script = ExtResource("3_dqtm0")
+script = ExtResource("3_sfipp")
 
 [node name="ShotTimer" type="Timer" parent="."]
 autostart = true

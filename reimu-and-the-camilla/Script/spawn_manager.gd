@@ -30,8 +30,15 @@ func _on_timer_timeout():
 		else:
 			timer.stop()  # Stop once all enemies in the pattern have spawned
 		
+		
+var enemy_funcs = {
+	"enemy_test": PoolingManager.get_node("enemyPool").get_enemy_test,
+	"enemy_duck": PoolingManager.get_node("enemyPool").get_enemy_duck,
+	"enemy_butterfly": PoolingManager.get_node("enemyPool").get_enemy_butterfly
+}
+
 func _spawn_enemy(position, enemy_scene):
-	var enemy = PoolingManager.get_node("enemyPool").get_enemy()
+	var enemy = enemy_funcs[enemy_scene].call()
 	if enemy != null:
 		enemy.position = position
 		if position.x < 0:

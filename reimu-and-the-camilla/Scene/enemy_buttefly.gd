@@ -42,7 +42,7 @@ func is_off_screen() -> bool:
 
 func return_self():
 	set_all_process(false)
-	PoolingManager.get_node("enemyPool").return_enemy_test(self)
+	PoolingManager.get_node("enemyPool").return_enemy_butterfly(self)
 		
 func deal_damage(damage: float):
 	Health -= damage
@@ -60,4 +60,3 @@ func flash_red() -> void:
 
 	tween.tween_property($AnimatedSprite2D, "modulate", Color(1, 0, 0), 0.1)
 	tween.tween_property($AnimatedSprite2D, "modulate", Color(1, 1, 1), 0.1)
-	
