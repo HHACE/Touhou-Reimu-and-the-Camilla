@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjp7l0vwqe0ba"]
+
+[ext_resource type="Texture2D" uid="uid://ddr4uo1m38vda" path="res://Asset/Texture/UI/Credits/CreditsMenuName.png" id="1_ewe06"]
+[ext_resource type="FontFile" uid="uid://bf78eihydw8qc" path="res://Asset/Font/1942.ttf" id="2_i67bc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4x16x"]
+font = ExtResource("2_i67bc")
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[node name="Credits" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="CreditsMenuName" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_top = 92.0
+offset_right = 499.0
+offset_bottom = 244.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ewe06")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 210.0
+offset_right = 1530.0
+offset_bottom = 889.0
+text = "CREDITS WILL GO HERE"
+label_settings = SubResource("LabelSettings_4x16x")
+horizontal_alignment = 1
+vertical_alignment = 1

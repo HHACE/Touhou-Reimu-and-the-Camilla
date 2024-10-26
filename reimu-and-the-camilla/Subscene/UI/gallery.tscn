@@ -1,0 +1,140 @@
+[gd_scene load_steps=14 format=3 uid="uid://c8ke7kg0ws47h"]
+
+[ext_resource type="Script" path="res://Script/Gallery.gd" id="1_qp4k5"]
+[ext_resource type="Texture2D" uid="uid://rjgwpjwjb2tx" path="res://Asset/Texture/Sprite/Enemy/Fairy.png" id="2_j1sub"]
+[ext_resource type="Texture2D" uid="uid://cm1dfx3emyg7m" path="res://Asset/Texture/Sprite/Enemy/Duck.png" id="3_vojxm"]
+[ext_resource type="Texture2D" uid="uid://nap55lnmlc4y" path="res://Asset/Texture/Sprite/Enemy/Butterfly.png" id="4_0lxwm"]
+[ext_resource type="Texture2D" uid="uid://dngcglub761kb" path="res://Asset/Texture/Sprite/Player/Reimu.png" id="5_dfqbp"]
+[ext_resource type="Texture2D" uid="uid://whq35gaqj28j" path="res://Asset/Texture/Sprite/Enemy/Yukari.png" id="6_n51pp"]
+[ext_resource type="AudioStream" uid="uid://cmq8onkevpvsi" path="res://Asset/Audio/Music/TitleScreen.wav" id="7_2s0fu"]
+[ext_resource type="AudioStream" uid="uid://6e22vx7yowc1" path="res://Asset/Audio/Music/DAMACTION_wip_s1_v2.mp3" id="8_ilktg"]
+[ext_resource type="Texture2D" uid="uid://dh82i5x63hvxh" path="res://Asset/Texture/UI/Gallery/GalleryMenuName.png" id="9_h6iqo"]
+[ext_resource type="FontFile" uid="uid://bf78eihydw8qc" path="res://Asset/Font/1942.ttf" id="10_vla3v"]
+[ext_resource type="Texture2D" uid="uid://d0u1d343yl0l0" path="res://Asset/Texture/UI/Gallery/Selection.png" id="11_rxph3"]
+[ext_resource type="Texture2D" uid="uid://coucix0ssfm7k" path="res://Asset/Texture/UI/Gallery/LongerSelection.png" id="12_qaxi6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jywii"]
+font = ExtResource("10_vla3v")
+font_size = 72
+font_color = Color(0, 0, 0, 1)
+
+[node name="Gallery" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_qp4k5")
+ArtTextures = Array[Texture2D]([ExtResource("2_j1sub"), ExtResource("3_vojxm"), ExtResource("4_0lxwm"), ExtResource("5_dfqbp"), ExtResource("6_n51pp")])
+Songs = Array[AudioStream]([ExtResource("7_2s0fu"), ExtResource("8_ilktg")])
+
+[node name="GalleryMenuName" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_top = 92.0
+offset_right = 499.0
+offset_bottom = 244.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_h6iqo")
+
+[node name="GalleryTypeSelection" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Options" type="Label" parent="GalleryTypeSelection"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 170.0
+offset_right = 763.0
+offset_bottom = 986.0
+text = "Art
+Music
+
+Quit"
+label_settings = SubResource("LabelSettings_jywii")
+
+[node name="Selection" type="TextureRect" parent="GalleryTypeSelection"]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 227.0
+offset_right = 623.0
+offset_bottom = 252.0
+texture = ExtResource("11_rxph3")
+stretch_mode = 4
+
+[node name="Art" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Options" type="Label" parent="Art"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 170.0
+offset_right = 763.0
+offset_bottom = 986.0
+text = "Fairy
+Duck
+Butterfly
+Reimu
+Yukari
+
+Quit"
+label_settings = SubResource("LabelSettings_jywii")
+
+[node name="ArtDisplay" type="TextureRect" parent="Art"]
+layout_mode = 0
+offset_left = 866.0
+offset_top = 106.0
+offset_right = 1588.0
+offset_bottom = 968.0
+texture = ExtResource("2_j1sub")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Selection" type="TextureRect" parent="Art"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 255.0
+offset_right = 848.0
+offset_bottom = 341.0
+scale = Vector2(1, -1)
+texture = ExtResource("12_qaxi6")
+stretch_mode = 4
+
+[node name="Music" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Options" type="Label" parent="Music"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 170.0
+offset_right = 763.0
+offset_bottom = 986.0
+text = "Title
+Stage 1
+
+Quit"
+label_settings = SubResource("LabelSettings_jywii")
+
+[node name="Selection" type="TextureRect" parent="Music"]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 255.0
+offset_right = 848.0
+offset_bottom = 341.0
+scale = Vector2(1, -1)
+texture = ExtResource("12_qaxi6")
+stretch_mode = 4

@@ -1,0 +1,318 @@
+[gd_scene load_steps=14 format=3 uid="uid://bsh6dx4u3l4x4"]
+
+[ext_resource type="Script" path="res://Script/options.gd" id="1_yrepb"]
+[ext_resource type="Texture2D" uid="uid://csuvtcsj20bs2" path="res://Asset/Texture/UI/Options/VolumeOn.png" id="2_x7j8l"]
+[ext_resource type="Texture2D" uid="uid://xystmok1l404" path="res://Asset/Texture/UI/Options/VolumeOff.png" id="3_mmsl7"]
+[ext_resource type="Texture2D" uid="uid://bu0pfreshrs7l" path="res://Asset/Texture/UI/Options/Enabled.png" id="4_i1hno"]
+[ext_resource type="Texture2D" uid="uid://d116mylhcinlq" path="res://Asset/Texture/UI/Options/Disabled.png" id="5_tr0sc"]
+[ext_resource type="Texture2D" uid="uid://b1d4uo1baodcu" path="res://Asset/Texture/UI/Options/OptionsMenuName.png" id="6_1rqgx"]
+[ext_resource type="Texture2D" uid="uid://doorl42e6yqes" path="res://Asset/Texture/UI/Options/Options.png" id="7_ns51x"]
+[ext_resource type="Texture2D" uid="uid://cef0apvefbug6" path="res://Asset/Texture/UI/Options/MainVolumeSelection.png" id="8_63wcp"]
+[ext_resource type="Texture2D" uid="uid://d1obanjj6v00y" path="res://Asset/Texture/UI/Options/SFXVolumeSelection.png" id="9_wxkhg"]
+[ext_resource type="Texture2D" uid="uid://cw84flwsu82g5" path="res://Asset/Texture/UI/Options/BGMVolumeSelection.png" id="10_bw67y"]
+[ext_resource type="Texture2D" uid="uid://cn6524qob2ig2" path="res://Asset/Texture/UI/Options/VSyncSelection.png" id="11_604ng"]
+[ext_resource type="Texture2D" uid="uid://drubi50shkny2" path="res://Asset/Texture/UI/Options/FullScreenSelection.png" id="12_ggwwr"]
+[ext_resource type="Texture2D" uid="uid://dxdkuiwru20au" path="res://Asset/Texture/UI/Options/QuitSelection.png" id="13_hplyv"]
+
+[node name="Options" type="Control" node_paths=PackedStringArray("MainVolumeBoxes", "SFXVolumeBoxes", "BGMVolumeBoxes", "SettingsSelections")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_yrepb")
+MainVolumeBoxes = [NodePath("Displays/MainVolume/VolumeSquare"), NodePath("Displays/MainVolume/VolumeSquare2"), NodePath("Displays/MainVolume/VolumeSquare3"), NodePath("Displays/MainVolume/VolumeSquare4"), NodePath("Displays/MainVolume/VolumeSquare5"), NodePath("Displays/MainVolume/VolumeSquare6"), NodePath("Displays/MainVolume/VolumeSquare7"), NodePath("Displays/MainVolume/VolumeSquare8"), NodePath("Displays/MainVolume/VolumeSquare9"), NodePath("Displays/MainVolume/VolumeSquare10")]
+SFXVolumeBoxes = [NodePath("Displays/SfxVolume/VolumeSquare"), NodePath("Displays/SfxVolume/VolumeSquare2"), NodePath("Displays/SfxVolume/VolumeSquare3"), NodePath("Displays/SfxVolume/VolumeSquare4"), NodePath("Displays/SfxVolume/VolumeSquare5"), NodePath("Displays/SfxVolume/VolumeSquare6"), NodePath("Displays/SfxVolume/VolumeSquare7"), NodePath("Displays/SfxVolume/VolumeSquare8"), NodePath("Displays/SfxVolume/VolumeSquare9"), NodePath("Displays/SfxVolume/VolumeSquare10")]
+BGMVolumeBoxes = [NodePath("Displays/BgmVolume/VolumeSquare"), NodePath("Displays/BgmVolume/VolumeSquare2"), NodePath("Displays/BgmVolume/VolumeSquare3"), NodePath("Displays/BgmVolume/VolumeSquare4"), NodePath("Displays/BgmVolume/VolumeSquare5"), NodePath("Displays/BgmVolume/VolumeSquare6"), NodePath("Displays/BgmVolume/VolumeSquare7"), NodePath("Displays/BgmVolume/VolumeSquare8"), NodePath("Displays/BgmVolume/VolumeSquare9"), NodePath("Displays/BgmVolume/VolumeSquare10")]
+SettingsSelections = [NodePath("Selections/MainVolumeSelection"), NodePath("Selections/SFXVolumeSelection"), NodePath("Selections/BGMVolumeSelection"), NodePath("Selections/VSyncSelection"), NodePath("Selections/FullScreenSelection"), NodePath("Selections/QuitSelection")]
+OnBoxTexture = ExtResource("2_x7j8l")
+OffBoxTexture = ExtResource("3_mmsl7")
+EnabledTexture = ExtResource("4_i1hno")
+DisabledTexture = ExtResource("5_tr0sc")
+
+[node name="OptionsMenuName" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -187.0
+offset_top = 92.0
+offset_right = 499.0
+offset_bottom = 244.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_1rqgx")
+
+[node name="Options" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 183.0
+offset_right = 1417.0
+offset_bottom = 1687.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_ns51x")
+
+[node name="Displays" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1919.0
+offset_bottom = 1079.0
+
+[node name="MainVolume" type="HBoxContainer" parent="Displays"]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 190.0
+offset_right = 1568.0
+offset_bottom = 254.0
+
+[node name="VolumeSquare" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare2" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare3" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare4" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare5" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare6" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare7" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare8" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare9" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare10" type="TextureRect" parent="Displays/MainVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="SfxVolume" type="HBoxContainer" parent="Displays"]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 291.0
+offset_right = 1569.0
+offset_bottom = 355.0
+
+[node name="VolumeSquare" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare2" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare3" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare4" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare5" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare6" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare7" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare8" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare9" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare10" type="TextureRect" parent="Displays/SfxVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="BgmVolume" type="HBoxContainer" parent="Displays"]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 391.0
+offset_right = 1569.0
+offset_bottom = 455.0
+
+[node name="VolumeSquare" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare2" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare3" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare4" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare5" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare6" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare7" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare8" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare9" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VolumeSquare10" type="TextureRect" parent="Displays/BgmVolume"]
+layout_mode = 2
+texture = ExtResource("2_x7j8l")
+stretch_mode = 5
+
+[node name="VSync" type="TextureRect" parent="Displays"]
+layout_mode = 0
+offset_left = 888.0
+offset_top = 553.0
+offset_right = 1572.0
+offset_bottom = 705.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_i1hno")
+
+[node name="FullScreen" type="TextureRect" parent="Displays"]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 655.0
+offset_right = 1569.0
+offset_bottom = 807.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_tr0sc")
+
+[node name="Selections" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1919.0
+offset_bottom = 1079.0
+
+[node name="MainVolumeSelection" type="TextureRect" parent="Selections"]
+layout_mode = 0
+offset_left = 294.0
+offset_top = 111.0
+offset_right = 1545.0
+offset_bottom = 469.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_63wcp")
+stretch_mode = 4
+
+[node name="SFXVolumeSelection" type="TextureRect" parent="Selections"]
+visible = false
+layout_mode = 0
+offset_left = 290.0
+offset_top = 245.0
+offset_right = 1474.0
+offset_bottom = 549.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_wxkhg")
+stretch_mode = 4
+
+[node name="BGMVolumeSelection" type="TextureRect" parent="Selections"]
+visible = false
+layout_mode = 0
+offset_left = 285.0
+offset_top = 344.0
+offset_right = 1515.0
+offset_bottom = 672.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_bw67y")
+stretch_mode = 4
+
+[node name="VSyncSelection" type="TextureRect" parent="Selections"]
+visible = false
+layout_mode = 0
+offset_left = 275.0
+offset_top = 526.0
+offset_right = 1111.0
+offset_bottom = 852.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_604ng")
+stretch_mode = 4
+
+[node name="FullScreenSelection" type="TextureRect" parent="Selections"]
+visible = false
+layout_mode = 0
+offset_left = 274.0
+offset_top = 594.0
+offset_right = 1488.0
+offset_bottom = 977.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_ggwwr")
+stretch_mode = 4
+
+[node name="QuitSelection" type="TextureRect" parent="Selections"]
+visible = false
+layout_mode = 0
+offset_left = 308.0
+offset_top = 794.0
+offset_right = 940.0
+offset_bottom = 1141.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_hplyv")
+stretch_mode = 4
