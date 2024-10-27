@@ -23,6 +23,7 @@ z_index = -1
 script = ExtResource("1_6apcj")
 
 [node name="stage1_spawnPattern" type="Node2D" parent="Spawn_Manager"]
+visible = false
 script = ExtResource("8_ue72p")
 
 [node name="Pooling_Manager" parent="." instance=ExtResource("2_h0e6o")]

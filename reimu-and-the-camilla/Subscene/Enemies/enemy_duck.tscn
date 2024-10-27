@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl1jb4rnx6npw"]
+[gd_scene load_steps=7 format=3 uid="uid://cl1jb4rnx6npw"]
 
 [ext_resource type="Script" path="res://Script/enemy_duck.gd" id="1_3agvo"]
 [ext_resource type="Texture2D" uid="uid://cm1dfx3emyg7m" path="res://Asset/Texture/Sprite/Enemy/Duck.png" id="2_npbkb"]
 [ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_s7xa5"]
 [ext_resource type="Script" path="res://Script/bullet_pattern.gd" id="4_ikokd"]
+[ext_resource type="Script" path="res://Subscene/Enemies/bullet/enemy_move_pattern.gd" id="5_yqqq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0a8uj"]
 radius = 38.71
@@ -31,4 +32,10 @@ script = ExtResource("4_ikokd")
 [node name="ShotTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="EnemyMovePattern" type="Node2D" parent="."]
+script = ExtResource("5_yqqq4")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ShotTimer" to="bullet_spawn_area" method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

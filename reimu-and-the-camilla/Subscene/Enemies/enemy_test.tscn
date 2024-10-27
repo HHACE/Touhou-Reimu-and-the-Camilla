@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bext7tr11ax38"]
+[gd_scene load_steps=7 format=3 uid="uid://bext7tr11ax38"]
 
 [ext_resource type="Script" path="res://Script/enemy_test.gd" id="1_7rxbl"]
 [ext_resource type="Texture2D" uid="uid://rjgwpjwjb2tx" path="res://Asset/Texture/Sprite/Enemy/Fairy.png" id="2_474di"]
 [ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_sfipp"]
 [ext_resource type="Script" path="res://Script/bullet_pattern.gd" id="4_blrap"]
+[ext_resource type="Script" path="res://Subscene/Enemies/bullet/enemy_move_pattern.gd" id="5_xrok6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tjgoy"]
 radius = 67.42
@@ -31,5 +32,11 @@ script = ExtResource("4_blrap")
 [node name="ShotTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="EnemyMovePattern" type="Node2D" parent="."]
+script = ExtResource("5_xrok6")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="ShotTimer" to="bullet_spawn_area" method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

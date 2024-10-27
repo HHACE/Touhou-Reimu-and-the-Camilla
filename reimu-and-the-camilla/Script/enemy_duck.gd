@@ -1,18 +1,36 @@
 extends Area2D
 
-var Health = 3.0;
-const SPEED = 600
+var Health = 5.0;
+var SPEED = 600
 
-var facing_dir =  Vector2.ZERO
-#var velocity = Vector2.ZERO
-#var enemy_pool = null
+var despawn_time = 5
+var despawn_bool = false
+
+var facing_dir = Vector2.ZERO
+var movement_center = Vector2.ZERO  # Define center for circular movement
+var circle_radius = 0              # Radius for circular movement
+var movement = ""      
+var circle_start_position = ""
+var circle_direction = false
+var phase_offset = 0.0
+
+
 
 func _ready() -> void:
 	pass
-	#enemy_pool = get_node("/root/EnemyPool")  # Adjust path as needed
+	#movement_center = position
+
 
 func _process(delta: float) -> void:
-	position.x += facing_dir.x * SPEED * delta
+	# Get enemy's name to determine movement type
+	#var enemy_name = self.name  # Assuming the node name is used to identify the enemy type
+	#
+	## Apply movement based on the enemy's name
+	if movement == "straight_movement":
+		position += $EnemyMovePattern.straight_movement(facing_dir, SPEED, delta)
+	elif movement == "circular_movement":
+		position = movement_center + $EnemyMovePattern.circular_movement(SPEED, circle_radius, circle_start_position, circle_direction, phase_offset)  # Counterclockwise starting from left
+
 	if facing_dir == Vector2.LEFT:
 		$AnimatedSprite2D.flip_h = true
 	else:
@@ -34,15 +52,21 @@ func set_all_process(x: bool):
 		$CollisionShape2D.call_deferred("set_disabled", true)
 
 func reset_all_property():
-	Health = 3.0;
+	Health = 5.0
+	despawn_bool = false
+	$DespawnTimer.wait_time = despawn_time
+	$DespawnTimer.start()
 
 func is_off_screen() -> bool:
-	var screen_size = get_viewport().size * 1.25
-	return position.x < -screen_size.x/2 or position.x > screen_size.x or position.y < -screen_size.y/2 or position.y > screen_size.y
+	var screen_size = get_viewport().size 
+	return position.x < 0 or position.x > screen_size.x or position.y < 0 or position.y > screen_size.y
+func _on_despawn_timer_timeout() -> void:
+	despawn_bool = true
 
 func return_self():
-	set_all_process(false)
-	PoolingManager.get_node("enemyPool").return_enemy_duck(self)
+	if despawn_bool == true or Health<=0:
+		set_all_process(false)
+		PoolingManager.get_node("enemyPool").return_enemy_duck(self)
 		
 func deal_damage(damage: float):
 	Health -= damage

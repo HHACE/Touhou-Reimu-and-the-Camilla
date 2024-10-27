@@ -12,6 +12,10 @@ signal _Dialogue
 signal _Resume
 signal _win
 
+
+var is_mode_switching = false
+signal _mode_switching
+
 var isDialogue = false
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +25,8 @@ func _ready() -> void:
 	connect("_Dialogue",_on_dialogue)
 	connect("_Resume",_on_resume)
 	connect("_win", _on_win)
+	
+	connect("_mode_switching", _on_mode_switching)
 
 var last_milestone = 0
 var milestone_step = 100000  
@@ -64,6 +70,11 @@ func _on_win():
 	#pass
 	print("_on_win")
 
+func _on_mode_switching():
+	print("_on_mode_switching")
+	is_mode_switching = !is_mode_switching
+
 func reset_game():
+	is_mode_switching = false
 	Playerlife = 3
 	score = 0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds866f6nt5m45"]
+[gd_scene load_steps=7 format=3 uid="uid://ds866f6nt5m45"]
 
 [ext_resource type="Script" path="res://Script/enemy_buttefly.gd" id="1_c8ivl"]
 [ext_resource type="Texture2D" uid="uid://nap55lnmlc4y" path="res://Asset/Texture/Sprite/Enemy/Butterfly.png" id="2_nknmm"]
 [ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_um4v3"]
 [ext_resource type="Script" path="res://Script/bullet_pattern.gd" id="4_27uia"]
+[ext_resource type="Script" path="res://Subscene/Enemies/bullet/enemy_move_pattern.gd" id="5_vwhfl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0a8uj"]
 radius = 19.57
@@ -31,4 +32,10 @@ script = ExtResource("4_27uia")
 [node name="ShotTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="EnemyMovePattern" type="Node2D" parent="."]
+script = ExtResource("5_vwhfl")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ShotTimer" to="bullet_spawn_area" method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

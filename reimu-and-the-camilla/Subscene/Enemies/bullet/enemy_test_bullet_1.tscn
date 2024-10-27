@@ -1,18 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://0msapud6j5l1"]
+[gd_scene load_steps=5 format=3 uid="uid://0msapud6j5l1"]
 
 [ext_resource type="Script" path="res://Script/enemy_test_bullet_1.gd" id="1_q68le"]
-[ext_resource type="Texture2D" uid="uid://dnmc6j1nj2xx5" path="res://icon.svg" id="2_pyas8"]
+[ext_resource type="Texture2D" uid="uid://cav1ogw7gebml" path="res://Asset/Texture/Sprite/booolet.png" id="2_lmy6t"]
+[ext_resource type="Script" path="res://Subscene/Enemies/bullet/bullet_move_pattern.gd" id="3_nvfib"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_40odo"]
 radius = 73.15
 
 [node name="enemy_test_bullet_1" type="Area2D" groups=["EnemyBullet"]]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_q68le")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_40odo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pyas8")
+texture = ExtResource("2_lmy6t")
+
+[node name="BulletMovePattern" type="Node2D" parent="."]
+script = ExtResource("3_nvfib")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

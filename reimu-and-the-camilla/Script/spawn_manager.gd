@@ -21,12 +21,14 @@ func _on_timer_timeout():
 	if pattern != null:
 		for i in pattern["positions"]:
 			#print(i)
-			_spawn_enemy(i, pattern["enemy_scene"])
+			_spawn_enemy(i,pattern["movement"],pattern["despawn_timer"], pattern["speed"], pattern["direction"], pattern["circle_radius"], pattern["phase_offset"], pattern["circle_start_position"], pattern["circle_direction"], pattern["enemy_scene"])
 		current_pattern_index += 1
 		if current_pattern_index < patterns.size():
-			
-			timer.wait_time = patterns[current_pattern_index]["interval"]
-			timer.start()
+			if patterns[current_pattern_index]["interval"] == 0:
+				_on_timer_timeout()
+			else:
+				timer.wait_time = patterns[current_pattern_index]["interval"]
+				timer.start()
 		else:
 			timer.stop()  # Stop once all enemies in the pattern have spawned
 		
@@ -38,14 +40,19 @@ var enemy_funcs = {
 	"enemy_boss_yukari": PoolingManager.get_node("enemyPool").get_enemy_boss_yukari
 }
 
-func _spawn_enemy(position, enemy_scene):
+func _spawn_enemy(spawn_position, movement, despawn_timer, speed, direction, circle_radius, phase_offset, circle_start_position ,circle_direction,  enemy_scene):
 	var enemy = enemy_funcs[enemy_scene].call()
 	if enemy != null:
-		enemy.position = position
-		if position.x < 0:
-			enemy.facing_dir =  Vector2.RIGHT
-		else:
-			enemy.facing_dir =  Vector2.LEFT
+		enemy.position = spawn_position
+		enemy.movement = movement
+		enemy.movement_center = spawn_position
+		enemy.despawn_time =  despawn_timer
+		enemy.SPEED =  speed
+		enemy.facing_dir =  direction
+		enemy.circle_radius =  circle_radius
+		enemy.phase_offset =  phase_offset
+		enemy.circle_start_position =  circle_start_position
+		enemy.circle_direction =  circle_direction
 		if enemy.get_parent() == null:
 			get_parent().add_child(enemy)
 		enemy.set_all_process(true)

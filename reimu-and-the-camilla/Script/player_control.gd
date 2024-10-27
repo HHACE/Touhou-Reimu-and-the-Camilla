@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 600.0
+var SPEED = 600.0
 var facing_direction = Vector2.RIGHT
 var direction = Vector2.ZERO
-
 
 
 func _ready() -> void:
@@ -44,9 +43,11 @@ func _input(event):
 		if $AnimatedSprite2D.flip_h == false:
 			$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D/afterEffect.flip_h = true
+			$parryArea.transform.x.x = -1
 		else:
 			$AnimatedSprite2D.flip_h = false
 			$AnimatedSprite2D/afterEffect.flip_h = false
+			$parryArea.transform.x.x = 1
 		facing_direction.x = -facing_direction.x
 		
 		var tween = create_tween() 
@@ -65,10 +66,43 @@ func _input(event):
 		$"../Pause"._set_all_process(true)
 		#else:
 			#$"../Pause"._set_all_process(false)
-	if Input.is_action_just_pressed("confirm"):
-		GameManager.emit_signal("_Dialogue")
+	#if Input.is_action_just_pressed("confirm"):
+		#GameManager.emit_signal("_Dialogue")
 		#_set_all_process(false)
 		
+	if Input.is_action_just_pressed("parry"):
+		parry_start()
+	if Input.is_action_just_pressed("mode_switching"):
+		GameManager.emit_signal("_mode_switching")
+		$modeSprite.scale
+		var tween = create_tween() 
+		tween.set_trans(Tween.TRANS_LINEAR)
+		if GameManager.is_mode_switching == true:
+			tween.tween_property($modeSprite, "scale", Vector2(1, 1), 0.0)
+			tween.parallel().tween_property($modeSprite, "modulate", Color(1, 1, 1, 0), 0.0)
+
+			tween.tween_property($modeSprite, "scale", Vector2(100, 100), 0.75)
+			tween.parallel().tween_property($modeSprite, "modulate", Color(0, 0, 0, 0.2), 0.5)
+		else:
+			tween.tween_property($modeSprite, "scale", Vector2(100, 100), 0.0)
+			tween.parallel().tween_property($modeSprite, "modulate", Color(0, 0, 0, 0.2), 0.0)
+			
+			tween.tween_property($modeSprite, "scale", Vector2(1, 1), 0.75)
+			tween.parallel().tween_property($modeSprite, "modulate", Color(1, 1, 1, 0), 0.75)
+		
+	if Input.is_action_pressed("slow_down"):
+		SPEED = 300
+	else:
+		SPEED = 600
+		
+func parry_start():
+	$parryArea/AnimationTree.get("parameters/playback").travel("slash")
+#func slow_down():
+	#if SPEED == 600:
+		#SPEED = SPEED/2
+	#else:
+		#SPEED = 600
+	
 func get_input() -> Vector2:
 	var direction := Vector2()
 	direction.y = Input.get_axis("move_up", "move_down")

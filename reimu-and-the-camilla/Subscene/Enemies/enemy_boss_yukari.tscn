@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm5xnc68cj0v0"]
+[gd_scene load_steps=7 format=3 uid="uid://bm5xnc68cj0v0"]
 
 [ext_resource type="Texture2D" uid="uid://whq35gaqj28j" path="res://Asset/Texture/Sprite/Enemy/Yukari.png" id="1_6t2qq"]
 [ext_resource type="Script" path="res://Script/enemy_boss_yukari.gd" id="1_omjyi"]
 [ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="2_0d4rv"]
 [ext_resource type="Script" path="res://Script/bullet_pattern.gd" id="3_ephsp"]
+[ext_resource type="Script" path="res://Subscene/Enemies/bullet/enemy_move_pattern.gd" id="5_g0lhg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a8tgs"]
 radius = 105.7
 
 [node name="enemy_boss_yukari" type="Area2D" groups=["Enemy"]]
+z_index = 10
 script = ExtResource("1_omjyi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -31,4 +33,10 @@ script = ExtResource("3_ephsp")
 [node name="ShotTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="EnemyMovePattern" type="Node2D" parent="."]
+script = ExtResource("5_g0lhg")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="ShotTimer" to="bullet_spawn_area" method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
