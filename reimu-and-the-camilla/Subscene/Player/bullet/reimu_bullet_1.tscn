@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cakkqitijes45"]
 
-[ext_resource type="Texture2D" uid="uid://dnmc6j1nj2xx5" path="res://icon.svg" id="1_7lk5t"]
+[ext_resource type="Texture2D" uid="uid://dfw8d1sb6whnr" path="res://Asset/Texture/Sprite/ofuda.png" id="1_5qs6v"]
 
 [sub_resource type="GDScript" id="GDScript_v23lp"]
 script/source = "extends Area2D
@@ -49,8 +49,9 @@ script = SubResource("GDScript_v23lp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0.835294, 0, 1)
+rotation = 1.5708
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_7lk5t")
+texture = ExtResource("1_5qs6v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ska8f")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl1jb4rnx6npw"]
+[gd_scene load_steps=9 format=3 uid="uid://cl1jb4rnx6npw"]
 
 [ext_resource type="Script" path="res://Script/enemy_duck.gd" id="1_3agvo"]
 [ext_resource type="Texture2D" uid="uid://cm1dfx3emyg7m" path="res://Asset/Texture/Sprite/Enemy/Duck.png" id="2_npbkb"]
+[ext_resource type="Texture2D" uid="uid://i2d22skb3n54" path="res://Asset/Texture/Sprite/Enemy/Duck2.png" id="3_mn0cv"]
 [ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_s7xa5"]
 [ext_resource type="Script" path="res://Script/bullet_pattern.gd" id="4_ikokd"]
 [ext_resource type="Script" path="res://Subscene/Enemies/bullet/enemy_move_pattern.gd" id="5_yqqq4"]
@@ -9,15 +10,31 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0a8uj"]
 radius = 38.71
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7sdh4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_npbkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mn0cv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="enemy_duck" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_3agvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0a8uj")
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_npbkb")
+sprite_frames = SubResource("SpriteFrames_7sdh4")
+autoplay = "default"
+frame_progress = 0.780792
 
 [node name="bullet_spawn_area" type="Node2D" parent="."]
 script = ExtResource("3_s7xa5")

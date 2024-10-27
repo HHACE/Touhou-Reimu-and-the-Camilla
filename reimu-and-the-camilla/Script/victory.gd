@@ -2,10 +2,11 @@ extends Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_set_all_process(false)
+	_set_all_process(true)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$Label2.text = "Final Score: \n" + str(GameManager.score) 
 	_submit_selected()
 
 func _set_all_process(x : bool):
@@ -19,10 +20,7 @@ func _set_all_process(x : bool):
 func _submit_selected():
 
 	if Input.is_action_just_pressed("confirm"):
-		GameManager.emit_signal("_Resume")
 		
-		PoolingManager.get_node("enemyPool").reset_pool()
-		PoolingManager.get_node("bulletPool").reset_pool()
 		for child in PoolingManager.get_children():
 			if child.has_method("reset_pool"):
 				child.reset_pool()

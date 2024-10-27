@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://du0flsg70s7u5"]
+
+[ext_resource type="PackedScene" uid="uid://b8drvrdvtcg0d" path="res://Subscene/UI/victory.tscn" id="1_oifqe"]
+
+[node name="VictoryScence" type="Node2D"]
+
+[node name="Victory" parent="." instance=ExtResource("1_oifqe")]

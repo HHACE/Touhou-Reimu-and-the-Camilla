@@ -51,7 +51,7 @@ func reset_pool():
 	enemy_duck_pool.clear()
 	enemy_butterfly_pool.clear()
 	enemy_boss_yukari_pool.clear()
-	for i in range(20):
+	for i in range(50):
 		var enemy_test = enemy_test_scene.instantiate()
 		var enemy_duck = enemy_duck_scene.instantiate()
 		var enemy_butterfly = enemy_butterfly_scene.instantiate()

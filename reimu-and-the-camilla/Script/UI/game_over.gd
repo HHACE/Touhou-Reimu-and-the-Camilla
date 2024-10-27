@@ -35,8 +35,8 @@ func _submit_selected():
 	if Input.is_action_just_pressed("confirm"):
 		GameManager.emit_signal("_Resume")
 		
-		PoolingManager.get_node("enemyPool").reset_pool()
-		PoolingManager.get_node("bulletPool").reset_pool()
+		#PoolingManager.get_node("enemyPool").reset_pool()
+		#PoolingManager.get_node("bulletPool").reset_pool()
 		for child in PoolingManager.get_children():
 			if child.has_method("reset_pool"):
 				child.reset_pool()

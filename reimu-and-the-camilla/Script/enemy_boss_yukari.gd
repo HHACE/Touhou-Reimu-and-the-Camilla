@@ -73,6 +73,8 @@ func deal_damage(damage: float):
 	flash_red()
 	#TweenManager.flash_red(self)
 	if Health <= 0:
+		$"../DialogueBox".dialogueString = "dialogue_final_boss_victory"
+		GameManager.emit_signal("_Dialogue") 
 		GameManager.score += 100000
 		return_self()
 

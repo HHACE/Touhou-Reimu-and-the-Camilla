@@ -1,6 +1,6 @@
 extends Area2D
 
-var Health = 5.0;
+var Health = 15.0;
 var SPEED = 600
 
 var despawn_time = 5
@@ -51,7 +51,7 @@ func set_all_process(x: bool):
 		$CollisionShape2D.call_deferred("set_disabled", true)
 
 func reset_all_property():
-	Health = 100.0
+	Health = 15.0
 	despawn_bool = false
 	$DespawnTimer.wait_time = despawn_time
 	$DespawnTimer.start()

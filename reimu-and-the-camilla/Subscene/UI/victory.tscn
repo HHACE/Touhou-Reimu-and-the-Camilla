@@ -16,7 +16,6 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="Victory" type="Panel"]
 process_mode = 3
-visible = false
 z_index = 20
 offset_right = 1957.0
 offset_bottom = 1113.0

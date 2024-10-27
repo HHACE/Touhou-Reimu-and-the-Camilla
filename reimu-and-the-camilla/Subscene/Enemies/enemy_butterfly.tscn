@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds866f6nt5m45"]
+[gd_scene load_steps=9 format=3 uid="uid://ds866f6nt5m45"]
 
 [ext_resource type="Script" path="res://Script/enemy_buttefly.gd" id="1_c8ivl"]
 [ext_resource type="Texture2D" uid="uid://nap55lnmlc4y" path="res://Asset/Texture/Sprite/Enemy/Butterfly.png" id="2_nknmm"]
+[ext_resource type="Texture2D" uid="uid://tsw2htrexpsr" path="res://Asset/Texture/Sprite/Enemy/Butterfly2.png" id="3_0l3i3"]
 [ext_resource type="Script" path="res://Script/bullet_spawn_area.gd" id="3_um4v3"]
 [ext_resource type="Script" path="res://Script/bullet_pattern.gd" id="4_27uia"]
 [ext_resource type="Script" path="res://Subscene/Enemies/bullet/enemy_move_pattern.gd" id="5_vwhfl"]
@@ -9,15 +10,31 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_0a8uj"]
 radius = 19.57
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2t7ls"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nknmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0l3i3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
 [node name="enemy_butterfly" type="Area2D" groups=["Enemy"]]
 script = ExtResource("1_c8ivl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0a8uj")
 
-[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_nknmm")
+sprite_frames = SubResource("SpriteFrames_2t7ls")
+autoplay = "default"
+frame_progress = 0.262906
 
 [node name="bullet_spawn_area" type="Node2D" parent="."]
 script = ExtResource("3_um4v3")

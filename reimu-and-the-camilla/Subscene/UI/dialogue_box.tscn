@@ -53,7 +53,6 @@ animations = [{
 
 [node name="DialogueBox" type="Panel"]
 process_mode = 3
-visible = false
 z_index = 19
 offset_right = 1986.0
 offset_bottom = 1127.0
@@ -86,8 +85,9 @@ offset_left = 28.0
 offset_top = 23.0
 offset_right = 1744.0
 offset_bottom = 306.0
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 50
 text = "Text"
+autowrap_mode = 3
 
 [node name="dialogueHolder" type="Node2D" parent="."]
 script = ExtResource("4_nls7g")

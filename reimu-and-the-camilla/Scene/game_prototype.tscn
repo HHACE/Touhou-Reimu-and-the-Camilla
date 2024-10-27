@@ -65,3 +65,4 @@ vertical_alignment = 1
 [node name="Pause" parent="." instance=ExtResource("10_txtm1")]
 
 [node name="DialogueBox" parent="." instance=ExtResource("11_bog61")]
+visible = false

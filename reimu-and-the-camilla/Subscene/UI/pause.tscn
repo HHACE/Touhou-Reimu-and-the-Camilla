@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuuqcxon8s4bh"]
+[gd_scene load_steps=10 format=3 uid="uid://cuuqcxon8s4bh"]
 
 [ext_resource type="Script" path="res://Script/UI/pause.gd" id="1_eiybg"]
 [ext_resource type="Texture2D" uid="uid://lmry0b6k3xx6" path="res://Asset/Texture/UI/TempMenuBG.png" id="2_27s2u"]
@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dq4jeutfthgo8" path="res://Asset/Texture/UI/MainMenu/OptionsSelection.png" id="6_j4onr"]
 [ext_resource type="Texture2D" uid="uid://bd31dfhfwch14" path="res://Asset/Texture/UI/MainMenu/QuitButton.png" id="7_vv8pe"]
 [ext_resource type="Texture2D" uid="uid://trviq7yyej3b" path="res://Asset/Texture/UI/MainMenu/QuitSelection.png" id="8_6s3ni"]
+[ext_resource type="FontFile" uid="uid://bf78eihydw8qc" path="res://Asset/Font/1942.ttf" id="9_m1146"]
 
 [node name="Pause" type="Panel"]
 process_mode = 3
-visible = false
 z_index = 20
 offset_right = 40.0
 offset_bottom = 40.0
@@ -132,6 +132,8 @@ offset_left = 620.0
 offset_top = 150.0
 offset_right = 1289.0
 offset_bottom = 503.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_m1146")
 theme_override_font_sizes/font_size = 200
 text = "PAUSE"
 horizontal_alignment = 1

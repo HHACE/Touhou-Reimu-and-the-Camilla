@@ -19,18 +19,33 @@ func _ready():
 func _on_timer_timeout():
 	var pattern = patterns[current_pattern_index]
 	if pattern != null:
-		for i in pattern["positions"]:
-			#print(i)
-			_spawn_enemy(i,pattern["movement"],pattern["despawn_timer"], pattern["speed"], pattern["direction"], pattern["circle_radius"], pattern["phase_offset"], pattern["circle_start_position"], pattern["circle_direction"], pattern["enemy_scene"])
-		current_pattern_index += 1
-		if current_pattern_index < patterns.size():
-			if patterns[current_pattern_index]["interval"] == 0:
-				_on_timer_timeout()
+		if pattern["positions"] == null:
+			$"../DialogueBox".dialogueString = pattern["event"]
+			GameManager.emit_signal("_Dialogue") 
+			
+			current_pattern_index += 1
+			if current_pattern_index < patterns.size():
+				if patterns[current_pattern_index]["interval"] == 0:
+					_on_timer_timeout()
+				else:
+					timer.wait_time = patterns[current_pattern_index]["interval"]
+					timer.start()
 			else:
-				timer.wait_time = patterns[current_pattern_index]["interval"]
-				timer.start()
+				timer.stop()  # Stop once all enemies in the pattern have spawned
 		else:
-			timer.stop()  # Stop once all enemies in the pattern have spawned
+			for i in pattern["positions"]:
+					
+				#print(i)
+				_spawn_enemy(i,pattern["movement"],pattern["despawn_timer"], pattern["speed"], pattern["direction"], pattern["circle_radius"], pattern["phase_offset"], pattern["circle_start_position"], pattern["circle_direction"], pattern["enemy_scene"])
+			current_pattern_index += 1
+			if current_pattern_index < patterns.size():
+				if patterns[current_pattern_index]["interval"] == 0:
+					_on_timer_timeout()
+				else:
+					timer.wait_time = patterns[current_pattern_index]["interval"]
+					timer.start()
+			else:
+				timer.stop()  # Stop once all enemies in the pattern have spawned
 		
 		
 var enemy_funcs = {
