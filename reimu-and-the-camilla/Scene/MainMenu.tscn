@@ -35,6 +35,16 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
+[node name="Logo" type="TextureRect" parent="Main"]
+layout_mode = 0
+offset_left = 1062.0
+offset_top = 47.0
+offset_right = 1588.0
+offset_bottom = 567.0
+texture = ExtResource("18_v5o1b")
+expand_mode = 3
+stretch_mode = 4
+
 [node name="Start" type="TextureRect" parent="Main"]
 layout_mode = 0
 offset_left = 387.0
@@ -171,12 +181,3 @@ script = ExtResource("28_j0jey")
 stream = ExtResource("27_auqfv")
 autoplay = true
 bus = &"BGM"
-
-[node name="Logo" type="TextureRect" parent="."]
-offset_left = 1062.0
-offset_top = 47.0
-offset_right = 1588.0
-offset_bottom = 567.0
-texture = ExtResource("18_v5o1b")
-expand_mode = 3
-stretch_mode = 4

@@ -5,7 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_4x16x"]
 font = ExtResource("2_i67bc")
-font_size = 60
+font_size = 45
 font_color = Color(0, 0, 0, 1)
 
 [node name="Credits" type="Control"]
@@ -20,21 +20,32 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -187.0
-offset_top = 92.0
-offset_right = 499.0
-offset_bottom = 244.0
+offset_left = -167.0
+offset_top = 96.0
+offset_right = 519.0
+offset_bottom = 248.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ewe06")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 460.0
-offset_top = 210.0
-offset_right = 1530.0
-offset_bottom = 889.0
-text = "CREDITS WILL GO HERE"
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -788.0
+offset_top = 248.0
+offset_right = 774.0
+offset_bottom = 842.0
+grow_horizontal = 2
+text = "KaizeruSolais: Lead Dev, Main Writer
+absolutereason: Composer
+bootles: Background artist
+KelpyEepy: Programmer
+Pioziomgames: UI Designer and Programmer
+Rook: Background artist
+Jo: Character Design, Sprite Artist
+Them3ds: Writer"
 label_settings = SubResource("LabelSettings_4x16x")
 horizontal_alignment = 1
 vertical_alignment = 1
