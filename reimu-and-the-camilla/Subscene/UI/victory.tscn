@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8drvrdvtcg0d"]
+
+[ext_resource type="Script" path="res://Script/victory.gd" id="1_exjum"]
+[ext_resource type="Texture2D" uid="uid://lmry0b6k3xx6" path="res://Asset/Texture/UI/TempMenuBG.png" id="2_v8ncq"]
+[ext_resource type="FontFile" uid="uid://bf78eihydw8qc" path="res://Asset/Font/1942.ttf" id="3_o53le"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_krvif"]
+font = ExtResource("3_o53le")
+font_size = 200
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sbvu0"]
+font = ExtResource("3_o53le")
+font_size = 125
+font_color = Color(0, 0, 0, 1)
+
+[node name="Victory" type="Panel"]
+process_mode = 3
+visible = false
+z_index = 20
+offset_right = 1957.0
+offset_bottom = 1113.0
+script = ExtResource("1_exjum")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_v8ncq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 498.0
+theme_override_font_sizes/font_size = 200
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_krvif")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 430.0
+offset_right = 1464.0
+offset_bottom = 687.0
+text = "Final Score: 
+999"
+label_settings = SubResource("LabelSettings_sbvu0")
+horizontal_alignment = 1
