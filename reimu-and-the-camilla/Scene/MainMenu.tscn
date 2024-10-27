@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://3seiw2405mbr"]
+[gd_scene load_steps=19 format=3 uid="uid://3seiw2405mbr"]
 
 [ext_resource type="Script" path="res://Script/UI/MainMenu.gd" id="1_bmn3a"]
 [ext_resource type="Texture2D" uid="uid://lmry0b6k3xx6" path="res://Asset/Texture/UI/TempMenuBG.png" id="1_mq8yu"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://rjwnbxps3nmh" path="res://Asset/Texture/UI/MainMenu/CreditsSelection.png" id="10_0uexm"]
 [ext_resource type="Texture2D" uid="uid://trviq7yyej3b" path="res://Asset/Texture/UI/MainMenu/QuitSelection.png" id="12_8knv8"]
 [ext_resource type="PackedScene" uid="uid://bsh6dx4u3l4x4" path="res://Subscene/UI/options.tscn" id="13_sqjnu"]
+[ext_resource type="Texture2D" uid="uid://dfslf7on7yg01" path="res://Asset/Texture/UI/Logo.png" id="18_v5o1b"]
 [ext_resource type="PackedScene" uid="uid://c8ke7kg0ws47h" path="res://Subscene/UI/gallery.tscn" id="25_dhc5v"]
 [ext_resource type="PackedScene" uid="uid://bjp7l0vwqe0ba" path="res://Subscene/UI/credits.tscn" id="26_0qhp8"]
 [ext_resource type="AudioStream" uid="uid://cmq8onkevpvsi" path="res://Asset/Audio/Music/TitleScreen.wav" id="27_auqfv"]
@@ -170,3 +171,12 @@ script = ExtResource("28_j0jey")
 stream = ExtResource("27_auqfv")
 autoplay = true
 bus = &"BGM"
+
+[node name="Logo" type="TextureRect" parent="."]
+offset_left = 1062.0
+offset_top = 47.0
+offset_right = 1588.0
+offset_bottom = 567.0
+texture = ExtResource("18_v5o1b")
+expand_mode = 3
+stretch_mode = 4
